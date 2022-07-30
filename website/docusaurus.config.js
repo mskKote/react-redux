@@ -36,7 +36,7 @@ const siteConfig = {
   ],
   title: 'React Redux RU', // Title for your website.
   onBrokenLinks: 'throw',
-  tagline: 'Официальная React библиотека для Redux на русском',
+  tagline: 'Официальная библиотека привязки Redux к React',
   // tagline: 'Official React bindings for Redux',
   url: 'https://react-redux.js.org', // Your website URL
   baseUrl: '/',
@@ -151,7 +151,7 @@ const siteConfig = {
               href: 'https://discord.gg/0ZcbPKXt5bZ6au5t',
             },
             {
-              label: 'Telegram переводчиков *ВСТАВИТЬ ССЫЛКУ*',
+              label: 'Telegram переводчиков',
               href: 'https://t.me/+E1Kjcjrrip8zZDFi',
             },
           ],

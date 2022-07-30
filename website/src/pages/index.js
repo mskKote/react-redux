@@ -99,7 +99,7 @@ const otherLibraries = [
   {
     content:
       // 'The official, opinionated, batteries-included toolset for efficient Redux development',
-      'Официальный продуманный и достаточный набор инструментов для эффективной работы с Redux',
+      'Официальный, продуманный и достаточный набор инструментов для эффективной работы с Redux',
     title: 'Redux Toolkit',
     link: 'https://redux-toolkit.js.org',
     image: (
