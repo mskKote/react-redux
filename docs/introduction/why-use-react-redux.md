@@ -1,14 +1,14 @@
 ---
 id: why-use-react-redux
-title: С какой целью React Redux?
+title: С какой целью использовать React Redux?
 hide_title: true
-sidebar_label: С какой целью React Redux?
-description: 'Introduction > Why Use React Redux: benefits of using React Redux in a React app'
+sidebar_label: С какой целью использовать React Redux?
+description: 'Основы > С какой целью использовать React Redux: привелегии использования React Redux в React приложении'
 ---
 
 &nbsp;
 
-# С какой целью React Redux?
+# С какой целью использовать React&nbsp;Redux?
 
 <!-- Redux itself is a standalone library that can be used with any UI layer or framework, including React, Angular, Vue, Ember, and vanilla JS. Although Redux and React are commonly used together, they are independent of each other. -->
 Redux является независимой библиотекой, которая может использоваться с любой UI логикой или любым фреймворком, включая React, Angular, Vue, Ember, и vanilla JS. Несмотря на то, что Redux и React часто используются вместе, они независимы.
