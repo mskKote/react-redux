@@ -11,58 +11,77 @@ const features = [
   {
     content: (
       <p>
-        React Redux is maintained by the Redux team, and{' '}
+        React Redux поддерживается командой Redux и{' '}
+        <strong>
+          сохраняет актульность с последними версиями Redux и React
+        </strong>
+        .
+        {/* React Redux is maintained by the Redux team, and{' '}
         <strong>
           kept up-to-date with the latest APIs from Redux and React
         </strong>
-        .
+        . */}
       </p>
     ),
     image: <img src="img/noun_Certificate_1945625.svg" />,
     imageAlign: 'top',
-    title: 'Official'
+    title: 'Официальная'
   },
   {
     content: (
       <p>
-        <strong>Designed to work with React's component model</strong>. You
+        <strong>Спроектирована для работы с React компонентами</strong>.
+        Определите, как извлечь данные для вашего компонента из Redux контейнера,
+        затем библиотека будет обновлять его при необходимости.
+        {/* <strong>Designed to work with React's component model</strong>. You
         define how to extract the values your component needs from Redux, and
-        your component updates automatically as needed.
+        your component updates automatically as needed. */}
       </p>
     ),
     image: <img src="img/noun_Check_1870817.svg" />,
     imageAlign: 'top',
-    title: 'Predictable'
+    title: 'Предсказуемая'
   },
   {
     content: (
       <p>
-        Provides APIs that{' '}
+        <strong>Взаимодействие React компонентов с Redux контейнером через API</strong>
+        , таким образом, упрощается внедрение концепции Redux в приложение.
+        {/* <strong>Предоставляет API для{' '}
+        взаимодействия React компонентов с Redux контейнером</strong>
+        , тем самым, упрощая внедрение концепции Redux. */}
+        {/* Provides APIs that{' '}
         <strong>enable your components to interact with the Redux store</strong>
-        , so you don't have to write that logic yourself.
+        , so you don't have to write that logic yourself. */}
       </p>
     ),
     image: <img src="img/noun_Box_1664404.svg" />,
     imageAlign: 'top',
-    title: 'Encapsulated'
+    title: 'Инкапсулированная' // Закрытая. Без настроек. Из коробки
   },
   {
     content: (
       <p>
-        Automatically implements{' '}
-        <strong>complex performance optimizations</strong>, so that your own
-        component only re-renders when the data it needs has actually changed.
+        Автоматически реализует{' '}
+        <strong>совокупность оптимизаций производительности</strong>,
+        компоненты перерисовываются исключительно
+        при изменении задействованных в них данных.
       </p>
+      // <p>
+      //   Automatically implements{' '}
+      //   <strong>complex performance optimizations</strong>, so that your own
+      //   component only re-renders when the data it needs has actually changed.
+      // </p>
     ),
     image: <img src="img/noun_Rocket_1245262.svg" />,
     imageAlign: 'top',
-    title: 'Optimized'
+    title: 'Оптимизированная'
   }
 ]
 
 const otherLibraries = [
   {
-    content: 'A predictable state container for JavaScript applications',
+    content: 'Предсказуемый контейнер состояния для JavaScript приложений',
     title: 'Redux',
     link: 'https://redux.js.org',
     image: (
@@ -79,7 +98,8 @@ const otherLibraries = [
   },
   {
     content:
-      'The official, opinionated, batteries-included toolset for efficient Redux development',
+      // 'The official, opinionated, batteries-included toolset for efficient Redux development',
+      'Официальный продуманный и достаточный набор инструментов для эффективной работы с Redux',
     title: 'Redux Toolkit',
     link: 'https://redux-toolkit.js.org',
     image: (
@@ -107,7 +127,7 @@ function Home() {
   }, [])
 
   return (
-    <Layout title={siteConfig.title} description={siteConfig.tagline}>
+    <Layout title={"Главная"} description={siteConfig.tagline}>
       <header className={classnames('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <div className={styles.title}>
@@ -118,10 +138,16 @@ function Home() {
               height="100"
             />
             <h1 className={`${styles.projectTitle} hero__title`}>
-              {siteConfig.title}
+              <a
+                className={styles.heroLink}
+                href='https://react-redux.js.org/'>
+                React Redux
+              </a>
             </h1>
           </div>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
+          <p className="hero__subtitle">
+            {siteConfig.tagline}
+          </p>
           <div className={styles.buttons}>
             <Link
               className={classnames(
@@ -130,7 +156,7 @@ function Home() {
               )}
               to={useBaseUrl('introduction/getting-started')}
             >
-              Get Started
+              Начало работы
             </Link>
           </div>
         </div>
@@ -163,7 +189,7 @@ function Home() {
               <div className="row">
                 <div className="col">
                   <h2 className={`text--center ${styles.secondTitle}`}>
-                    Other Libraries from the Redux Team
+                    Другие библиотеки от команды Redux
                   </h2>
                 </div>
               </div>

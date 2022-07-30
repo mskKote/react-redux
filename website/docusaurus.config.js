@@ -34,9 +34,10 @@ const siteConfig = {
       },
     ],
   ],
-  title: 'React Redux', // Title for your website.
+  title: 'React Redux RU', // Title for your website.
   onBrokenLinks: 'throw',
-  tagline: 'Official React bindings for Redux',
+  tagline: 'Официальная React библиотека для Redux на русском',
+  // tagline: 'Official React bindings for Redux',
   url: 'https://react-redux.js.org', // Your website URL
   baseUrl: '/',
   // Used for publishing and more
@@ -71,35 +72,39 @@ const siteConfig = {
     navbar: {
       title: 'React Redux',
       logo: {
-        alt: 'Redux Logo',
+        alt: 'Логотип Redux',
         src: 'img/redux.svg',
       },
       items: [
         {
           to: 'introduction/getting-started',
-          label: 'Getting Started',
+          label: 'Основы',
           position: 'right',
         },
         {
           to: 'tutorials/quick-start',
-          label: 'Tutorial',
+          label: 'Введение',
           position: 'right',
         },
         {
           to: 'using-react-redux/connect-mapstate',
-          label: 'Using React Redux',
+          label: 'Использование React Redux',
           position: 'right',
         },
-        { to: 'api/hooks', label: 'API', position: 'right' },
         {
-          href: 'https://www.github.com/reduxjs/react-redux',
+          to: 'api/hooks',
+          label: 'Описание API',
+          position: 'right'
+        },
+        {
+          href: 'https://github.com/reduxjs/react-redux',
           label: 'GitHub',
           position: 'right',
           className: 'github',
         },
         {
           href: '/introduction/getting-started#help-and-discussion',
-          label: 'Need help?',
+          label: 'Нужна помощь?',
           position: 'right',
         },
       ],
@@ -107,35 +112,35 @@ const siteConfig = {
     footer: {
       style: 'dark',
       logo: {
-        alt: 'Redux Logo',
+        alt: 'Логотип Redux',
         src: 'img/redux_white.svg',
       },
       copyright:
-        'Copyright (c) 2015-present Dan Abramov and the Redux documentation authors.',
+        'Правообладатель (c) с 2015 по настоящее Dan Abramov и авторы документации Redux.',
       links: [
         {
-          title: 'Docs',
+          title: 'Главы',
           items: [
             {
-              label: 'Introduction',
+              label: 'Введение',
               to: 'introduction/getting-started',
             },
             {
-              label: 'Using React Redux',
+              label: 'Использование React Redux',
               to: 'using-react-redux/connect-mapstate',
             },
             {
-              label: 'API Reference',
+              label: 'Описание API',
               to: 'api/hooks',
             },
             {
-              label: 'Guides',
+              label: 'Руководства',
               to: 'troubleshooting',
             },
           ],
         },
         {
-          title: 'Community',
+          title: 'Сообщества',
           items: [
             {
               label: 'Stack Overflow',
@@ -145,13 +150,21 @@ const siteConfig = {
               label: 'Discord',
               href: 'https://discord.gg/0ZcbPKXt5bZ6au5t',
             },
+            {
+              label: 'Telegram переводчиков *ВСТАВИТЬ ССЫЛКУ*',
+              href: 'https://t.me/+E1Kjcjrrip8zZDFi',
+            },
           ],
         },
         {
-          title: 'More',
+          title: 'Больше',
           items: [
             {
-              label: 'GitHub',
+              label: 'GitHub переводчиков',
+              href: 'https://github.com/reduxjs/react-redux',
+            },
+            {
+              label: 'Оригинальный GitHub',
               href: 'https://github.com/reduxjs/react-redux',
             },
             {
@@ -174,7 +187,7 @@ const siteConfig = {
                 <a href="https://www.netlify.com">
                   <img
                     src="https://www.netlify.com/img/global/badges/netlify-light.svg"
-                    alt="Deploys by Netlify"
+                    alt="Развёрнуто на Netlify"
                   />
                 </a>
               `,
