@@ -1,9 +1,9 @@
 ---
 id: getting-started
-title: Getting Started with React Redux
+title: Начало работы
 hide_title: true
-sidebar_label: Getting Started
-description: 'Introduction > Getting Started: First steps with React Redux'
+sidebar_label: Начало работы
+description: 'Основы > Начало работы: первые шаги с React Redux'
 ---
 
 &nbsp;
@@ -11,47 +11,50 @@ description: 'Introduction > Getting Started: First steps with React Redux'
 import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 
-# Getting Started with React Redux
+<!-- # Getting Started with React Redux -->
+# Начало работы с with React Redux
 
-[React Redux](https://github.com/reduxjs/react-redux) is the official [React](https://reactjs.org/) UI bindings layer for [Redux](https://redux.js.org/). It lets your React components read data from a Redux store, and dispatch actions to the store to update state.
+<!-- [React Redux](https://github.com/reduxjs/react-redux) is the official [React](https://reactjs.org/) UI bindings layer for [Redux](https://redux.js.org/). It lets your React components read data from a Redux store, and dispatch actions to the store to update state. -->
+[React Redux](https://github.com/reduxjs/react-redux) - это официальная библиотека для [React](https://reactjs.org/), связывающая UI и [Redux](https://redux.js.org/). Это позволяет вашим React компонентам читать данные из Redux контейнера (store) и отправлять (dispatch) действия (actions) в контейнер для обновления состояния (state).
 
-## Installation
+## Установка
 
-React Redux 8.x requires **React 16.8.3 or later** / **React Native 0.59 or later**, in order to make use of React Hooks.
+React Redux 8.x требует **React 16.8.3 или выше** / **React Native 0.59 или выше** для использования React хуков.
 
-### Using Create React App
+### Установка с Create React App
 
-The recommended way to start new apps with React and Redux is by using the [official Redux+JS template](https://github.com/reduxjs/cra-template-redux) or [Redux+TS template](https://github.com/reduxjs/cra-template-redux-typescript) for [Create React App](https://github.com/facebook/create-react-app), which takes advantage of **[Redux Toolkit](https://redux-toolkit.js.org/)** and React Redux's integration with React components.
+<!-- The recommended way to start new apps with React and Redux is by using the [official Redux+JS template](https://github.com/reduxjs/cra-template-redux) or [Redux+TS template](https://github.com/reduxjs/cra-template-redux-typescript) for [Create React App](https://github.com/facebook/create-react-app), which takes advantage of **[Redux Toolkit](https://redux-toolkit.js.org/)** and React Redux's integration with React components. -->
+Рекомендуемый путь для создания новых React приложений с Redux - использовать официальные шаблоны [Redux+JS](https://github.com/reduxjs/cra-template-redux) или [Redux+TS](https://github.com/reduxjs/cra-template-redux-typescript) для [Create React App](https://github.com/facebook/create-react-app), сделанные с применением **[Redux Toolkit](https://redux-toolkit.js.org/)** и интеграцией React Redux в React компонентах.
 
 ```bash
-# Redux + Plain JS template
+# Шаблон Redux на JS
 npx create-react-app my-app --template redux
 
-# Redux + TypeScript template
+# Шаблон Redux на TypeScript
 npx create-react-app my-app --template redux-typescript
 ```
 
-### An Existing React App
+### Внедрение в существующее React приложение
 
-To use React Redux with your React app, install it as a dependency:
+Для использования React Redux в вашем приложении установите зависимость:
 
 ```bash
-# If you use npm:
+# Если вы используете npm:
 npm install react-redux
 
-# Or if you use Yarn:
+# или если вы используете Yarn:
 yarn add react-redux
 ```
 
-You'll also need to [install Redux](https://redux.js.org/introduction/installation) and [set up a Redux store](https://redux.js.org/recipes/configuring-your-store/) in your app.
+Вам также потреюуется [установить Redux](https://redux.js.org/introduction/installation) и [настроить Redux контейнер](https://redux.js.org/recipes/configuring-your-store/) в вашем приложении.
 
-React-Redux v8 is written in TypeScript, so all types are automatically included.
+React-Redux v8 разработан на TypeScript, следовательно, типизация встроена автоматически.
 
-## API Overview
+## Обзор API 
 
 ### `Provider`
 
-React Redux includes a `<Provider />` component, which makes the Redux store available to the rest of your app:
+React Redux содержит компонент `<Provider />`, который делает Redux контейнер доступным всему приложению.
 
 ```jsx
 import React from 'react'
@@ -62,7 +65,7 @@ import store from './store'
 
 import App from './App'
 
-// As of React 18
+// React 18
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <Provider store={store}>
@@ -71,11 +74,14 @@ root.render(
 )
 ```
 
-### Hooks
+### Хуки
 
-React Redux provides a pair of custom React hooks that allow your React components to interact with the Redux store.
+<!-- React Redux provides a pair of custom React hooks that allow your React components to interact with the Redux store. -->
+React Redux предоставляет пару пользовательских React хуков для взаимодействия с Redux контейнером из ваших компонентов.
 
-`useSelector` reads a value from the store state and subscribes to updates, while `useDispatch` returns the store's `dispatch` method to let you dispatch actions.
+<!-- `useSelector` reads a value from the store state and subscribes to updates, while `useDispatch` returns the store's `dispatch` method to let you dispatch actions. -->
+`useSelector` читает значение из контейнера состояния и подписывается на обновления, а `useDispatch` возвращает метод `dispatch`, позволяющий отправлять сообщения в контейнер.
+
 
 ```jsx
 import React from 'react'
@@ -98,7 +104,7 @@ export function Counter() {
       <div className={styles.row}>
         <button
           className={styles.button}
-          aria-label="Increment value"
+          aria-label="Увеличить значение"
           onClick={() => dispatch(increment())}
         >
           +
@@ -106,37 +112,41 @@ export function Counter() {
         <span className={styles.value}>{count}</span>
         <button
           className={styles.button}
-          aria-label="Decrement value"
+          aria-label="Уменьшить значение"
           onClick={() => dispatch(decrement())}
         >
           -
         </button>
       </div>
-      {/* omit additional rendering output here */}
+      {/* omit additional rendering output here [SIC] И КАК ЭТО ПЕРЕВОДИТЬ?*/}
     </div>
   )
 }
 ```
 
-## Learning React Redux
+## Изучение React Redux
 
-### Learn Modern Redux Livestream
+### "Узнай современный Redux" (Запись трансляции)
 
-Redux maintainer Mark Erikson appeared on the "Learn with Jason" show to explain how we recommend using Redux today. The show includes a live-coded example app that shows how to use Redux Toolkit and React-Redux hooks with Typescript, as well as the new RTK Query data fetching APIs.
+Разработчик Redux Марк Эриксон появился на шоу "Learn with Jason", чтобы объяснить, как мы рекомендуем использовать Redux сегодня. Запись включает в себя разработку React приложения на Typescript с Redux Toolkit, Redux-Redux хуками и новым инструментом для запросов RTK Query.
 
-See [the "Learn Modern Redux" show notes page](https://www.learnwithjason.dev/let-s-learn-modern-redux) for a transcript and links to the example app source.
+Посмотри [заметки шоу "Узнай современный Redux"](https://www.learnwithjason.dev/let-s-learn-modern-redux) для транскрипции и ссылки на код приложения.
 
 <LiteYouTubeEmbed 
     id="9zySeP5vH9c"
     title="Learn Modern Redux - Redux Toolkit, React-Redux Hooks, and RTK Query"
 />
 
-## Help and Discussion
+## Помощь и дискуссия
 
-The **[#redux channel](https://discord.gg/0ZcbPKXt5bZ6au5t)** of the **[Reactiflux Discord community](http://www.reactiflux.com)** is our official resource for all questions related to learning and using Redux. Reactiflux is a great place to hang out, ask questions, and learn - come join us!
+<!-- The **[#redux channel](https://discord.gg/0ZcbPKXt5bZ6au5t)** of the **[Reactiflux Discord community](http://www.reactiflux.com)** is our official resource for all questions related to learning and using Redux. Reactiflux is a great place to hang out, ask questions, and learn - come join us! -->
+**[Канал #redux в Discord](https://discord.gg/0ZcbPKXt5bZ6au5t)** от **[сообщества Reactiflux](http://www.reactiflux.com)** - это наш официальный ресурс для всех вопросов касательно изучения и использования Redux. Reactiflux — отличное место, где можно пообщаться, задать вопросы и узнать что-то новое — присоединяйтесь к нам!
 
-You can also ask questions on [Stack Overflow](https://stackoverflow.com) using the **[#redux tag](https://stackoverflow.com/questions/tagged/redux)**.
+Вы также можете задать вопросы на [Stack Overflow](https://stackoverflow.com) используя **[#redux тэг](https://stackoverflow.com/questions/tagged/redux)**.
 
-## Docs Translations
-
+## Документация на разных языках
+- [English - оригинальная библиотека](https://react-redux.js.org)
 - [Portuguese](https://fernandobelotto.github.io/react-redux)
+
+
+Оригинальная документация написана на английском. На русский язык была переведена усилиями @mskKote и @shchukin_ve. Если вы хотите поддержать перевод, присоединяйтесь в [наш Telegram чат](https://t.me/+E1Kjcjrrip8zZDFi)
