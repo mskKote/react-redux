@@ -1,53 +1,62 @@
 ---
 id: quick-start
-title: Quick Start
-sidebar_label: Quick Start
+title: Быстрый старт
+sidebar_label: Быстрый старт
 hide_title: true
 ---
 
 &nbsp;
 
-# React Redux Quick Start
+# Быстрый старт с React Redux
 
-:::tip What You'll Learn
+:::tip Чему вы научитесь?
 
-- How to set up and use Redux Toolkit with React Redux
-
-:::
-
-:::info Prerequisites
-
-- Familiarity with [ES6 syntax and features](https://www.taniarascia.com/es6-syntax-and-feature-overview/)
-- Knowledge of React terminology: [JSX](https://reactjs.org/docs/introducing-jsx.html), [State](https://reactjs.org/docs/state-and-lifecycle.html), [Function Components, Props](https://reactjs.org/docs/components-and-props.html), and [Hooks](https://reactjs.org/docs/hooks-intro.html)
-- Understanding of [Redux terms and concepts](https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow)
+<!-- - How to set up and use Redux Toolkit with React Redux -->
+- Как установить и использовать Redux Toolkit вместе с React Redux
 
 :::
 
-## Introduction
+:::info Предварительные требования
 
-Welcome to the React Redux Quick Start tutorial! **This tutorial will briefly introduce you to React Redux and teach you how to start using it correctly**.
+- Знакомство с [синтаксисом ES6 и его возможностями](https://www.taniarascia.com/es6-syntax-and-feature-overview/)
+- Знания о терминологии React: [JSX](https://ru.reactjs.org/docs/introducing-jsx.html), [состояние](https://ru.reactjs.org/docs/state-and-lifecycle.html), [функциональные компоненты, пропсы](https://ru.reactjs.org/docs/components-and-props.html) и [хуки](https://ru.reactjs.org/docs/hooks-intro.html)
+- Понимание [терминов и концепции Redux](https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow)
 
-### How to Read This Tutorial
+:::
 
-This page will focus on just how to set up a Redux application with Redux Toolkit and the main APIs you'll use. For explanations of what Redux is, how it works, and full examples of how to use Redux Toolkit, see [the Redux core docs tutorials](https://redux.js.org/tutorials/index).
+## Введение
 
-For this tutorial, we assume that you're using Redux Toolkit and React Redux together, as that is the standard Redux usage pattern. The examples are based on [a typical Create-React-App folder structure](https://create-react-app.dev/docs/folder-structure) where all the application code is in a `src`, but the patterns can be adapted to whatever project or folder setup you're using.
+<!-- Welcome to the React Redux Quick Start tutorial! **This tutorial will briefly introduce you to React Redux and teach you how to start using it correctly**. -->
+Добро пожаловать во начальное руководство по React Redux! **Это руководство вкратце представит вам React Redux и обучит использовать его корректно**.
 
-The [Redux+JS template for Create-React-App](https://github.com/reduxjs/cra-template-redux) comes with this same project setup already configured.
+### Как читать это руководство?
 
-## Usage Summary
+<!-- This page will focus on just how to set up a Redux application with Redux Toolkit and the main APIs you'll use. For explanations of what Redux is, how it works, and full examples of how to use Redux Toolkit, see [the Redux core docs tutorials](https://redux.js.org/tutorials/index). -->
+Эта страница будет акцентировать внимание только на первичную установку приложения с Redux и Redux Toolkit, а также познакомит с главными API, которые вы будете использовать. Для понимания, что такое Redux, как он работает и изучения полных примеров использования Redux Toolkit, посмотрите [руководства на документации самого Redux](https://redux.js.org/tutorials/index).
 
-### Install Redux Toolkit and React Redux
+<!-- For this tutorial, we assume that you're using Redux Toolkit and React Redux together, as that is the standard Redux usage pattern. The examples are based on [a typical Create-React-App folder structure](https://create-react-app.dev/docs/folder-structure) where all the application code is in a `src`, but the patterns can be adapted to whatever project or folder setup you're using. -->
+В этом руководстве мы предположим, что вы используете Redux Toolkit и React Redux вместе, как стандартный шаблон использования Redux. В примерах используется [типичная структура папок, созданная Create-React-App](https://create-react-app.dev/docs/folder-structure), где весь код приложения хранится в папке `src`. Как бы то ни было, описанные паттерны могут адаптированы для любого проекта и файловой структуры, которую вы используете.
 
-Add the Redux Toolkit and React Redux packages to your project:
+
+<!-- The [Redux+JS template for Create-React-App](https://github.com/reduxjs/cra-template-redux) comes with this same project setup already configured. -->
+[Redux+JS шаблон для Create-React-App](https://github.com/reduxjs/cra-template-redux) устанавливает уже настроенный проект.
+
+## Резюме
+
+### Установите Redux Toolkit и React Redux
+
+<!-- Add the Redux Toolkit and React Redux packages to your project: -->
+Add the Redux Toolkit and React Redux packages to your project: -->
+Добавьте пакеты Redux Toolkit и React Redux в ваш проект:
 
 ```sh
 npm install @reduxjs/toolkit react-redux
 ```
 
-### Create a Redux Store
+### Создайте Redux контейнер
 
-Create a file named `src/app/store.js`. Import the `configureStore` API from Redux Toolkit. We'll start by creating an empty Redux store, and exporting it:
+<!-- Create a file named `src/app/store.js`. Import the `configureStore` API from Redux Toolkit. We'll start by creating an empty Redux store, and exporting it: -->
+Добавьте файл `src/app/store.js`. Импортируйте `configureStore` API из Redux Toolkit. Сначала мы создадим пустой Redux контейнер и экспортируем его:
 
 ```js title="app/store.js"
 import { configureStore } from '@reduxjs/toolkit'
@@ -57,11 +66,14 @@ export default configureStore({
 })
 ```
 
-This creates a Redux store, and also automatically configure the Redux DevTools extension so that you can inspect the store while developing.
+<!-- This creates a Redux store, and also automatically configure the Redux DevTools extension so that you can inspect the store while developing. -->
+Это создаст Redux контейнер и также автоматически настроит Redux DevTools расширение, таким образом вы сможете просматривать содержимое контейнера во время разработки.
 
-### Provide the Redux Store to React
+### Обозначим Redux контейнер в React
 
-Once the store is created, we can make it available to our React components by putting a React Redux `<Provider>` around our application in `src/index.js`. Import the Redux store we just created, put a `<Provider>` around your `<App>`, and pass the store as a prop:
+<!-- Once the store is created, we can make it available to our React components by putting a React Redux `<Provider>` around our application in `src/index.js`. Import the Redux store we just created, put a `<Provider>` around your `<App>`, and pass the store as a prop: -->
+Единожды создаётся Redux контейнер, который мы делаем доступным во всех React компонентах, обернув приложение в React Redux `<Provider>` в файле `src/index.js`. Импортируйте созданный на предыдущем шаге Redux контейнер и оберните ваше приложение `<App>` в `<Provider>`, которому необходимо предоставить в пропс наш Redux контейнер:
+
 
 ```js title="index.js"
 import React from 'react'
@@ -73,7 +85,7 @@ import store from './app/store'
 import { Provider } from 'react-redux'
 // highlight-end
 
-// As of React 18
+// React 18
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 root.render(
@@ -84,13 +96,17 @@ root.render(
 )
 ```
 
-### Create a Redux State Slice
+### Создайте "срез" (Slice) Redux контейнера
 
-Add a new file named `src/features/counter/counterSlice.js`. In that file, import the `createSlice` API from Redux Toolkit.
+<!-- Add a new file named `src/features/counter/counterSlice.js`. In that file, import the `createSlice` API from Redux Toolkit. -->
+Добавьте новый файл `src/features/counter/counterSlice.js`. В этом файле импортируйте `createSlice` API из Redux Toolkit.
 
-Creating a slice requires a string name to identify the slice, an initial state value, and one or more reducer functions to define how the state can be updated. Once a slice is created, we can export the generated Redux action creators and the reducer function for the whole slice.
+<!-- Creating a slice requires a string name to identify the slice, an initial state value, and one or more reducer functions to define how the state can be updated. Once a slice is created, we can export the generated Redux action creators and the reducer function for the whole slice. -->
+Создание среза Redux контейнера требует строковое имя, с которым будет ассоциирован этот срез, изначальное состояние и 1 или больше функций reducer для определения, как состояние может быть изменено. После создания среза мы можем экспортировать сгенерированные "действий" (Redux action) и функции reducer для этого среза.
 
-Redux requires that [we write all state updates immutably, by making copies of data and updating the copies](https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow#immutability). However, Redux Toolkit's `createSlice` and `createReducer` APIs use [Immer](https://immerjs.github.io/immer/) inside to allow us to [write "mutating" update logic that becomes correct immutable updates](https://redux.js.org/tutorials/fundamentals/part-8-modern-redux#immutable-updates-with-immer).
+
+<!-- Redux requires that [we write all state updates immutably, by making copies of data and updating the copies](https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow#immutability). However, Redux Toolkit's `createSlice` and `createReducer` APIs use [Immer](https://immerjs.github.io/immer/) inside to allow us to [write "mutating" update logic that becomes correct immutable updates](https://redux.js.org/tutorials/fundamentals/part-8-modern-redux#immutable-updates-with-immer). -->
+Redux требует, чтобы [все обновления состояния были иммутабельны путём копирования данных и обновления этих копий](https://redux.js.org/tutorials/fundamentals/part-2-concepts-data-flow#immutability). Как бы то ни было, `createSlice` и `createReducer` от Redux Toolkit используют [библиотеку Immer](https://immerjs.github.io/immer/), что позволяет нам [писать "мутабельную" логику обновления состояния, которая становится корректным иммутабельным вариантом](https://redux.js.org/tutorials/fundamentals/part-8-modern-redux#immutable-updates-with-immer).
 
 ```js title="features/counter/counterSlice.js"
 import { createSlice } from '@reduxjs/toolkit'
@@ -102,10 +118,10 @@ export const counterSlice = createSlice({
   },
   reducers: {
     increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
+      // Redux Toolkit позволяет нам писать "мутабельную" логику в reducer'ах.
+      // Это не изменяет state (контейнер) напрямую, потому что внутри используется библиотека Immer,
+      // которая следит за изменениями в "черновой state" и создает новое 
+      // неизменное состояние на основе этих изменений
       state.value += 1
     },
     decrement: (state) => {
@@ -117,15 +133,17 @@ export const counterSlice = createSlice({
   },
 })
 
-// Action creators are generated for each case reducer function
+// Функция действия генерируется на каждую функцию reducer, определённую в createSlice
 export const { increment, decrement, incrementByAmount } = counterSlice.actions
 
 export default counterSlice.reducer
 ```
 
-### Add Slice Reducers to the Store
+### Добавляем reducer функции созданного среза в Redux контейнер приложения
 
-Next, we need to import the reducer function from the counter slice and add it to our store. By defining a field inside the `reducers` parameter, we tell the store to use this slice reducer function to handle all updates to that state.
+<!-- Next, we need to import the reducer function from the counter slice and add it to our store. By defining a field inside the `reducers` parameter, we tell the store to use this slice reducer function to handle all updates to that state. -->
+Далее, нам нужно импортировать функцию reducer из среза для счётчика и добавить их в наш контейнер. Определением поля в параметре `reducers` мы говорим контейнеру использовать reducer функцию из среза для обработки изменений этого состояния.
+
 
 ```js title="app/store.js"
 import { configureStore } from '@reduxjs/toolkit'
@@ -140,9 +158,11 @@ export default configureStore({
 })
 ```
 
-### Use Redux State and Actions in React Components
+### Использование состояния из Redux контейнера и действий в компонентах React
 
-Now we can use the React Redux hooks to let React components interact with the Redux store. We can read data from the store with `useSelector`, and dispatch actions using `useDispatch`. Create a `src/features/counter/Counter.js` file with a `<Counter>` component inside, then import that component into `App.js` and render it inside of `<App>`.
+<!-- Now we can use the React Redux hooks to let React components interact with the Redux store. We can read data from the store with `useSelector`, and dispatch actions using `useDispatch`. Create a `src/features/counter/Counter.js` file with a `<Counter>` component inside, then import that component into `App.js` and render it inside of `<App>`. -->
+Теперь мы можем использовать хуки из React Redux, чтобы позволить React компонентам взаимодействовать с Redux контейнером. Мы можем читать состояние из контейнера при помощи хука `useSelector` и вызывать действия, используя `useDispatch`. Создайте файл `src/features/counter/Counter.js` с компонентом `<Counter>`, затем импортируйте этот компонент в `App.js` и поставьте его внутрь `<App>`.
+
 
 ```jsx title="features/counter/Counter.js"
 import React from 'react'
@@ -158,17 +178,17 @@ export function Counter() {
     <div>
       <div>
         <button
-          aria-label="Increment value"
+          aria-label="Увеличить значение"
           onClick={() => dispatch(increment())}
         >
-          Increment
+          Увеличить
         </button>
         <span>{count}</span>
         <button
-          aria-label="Decrement value"
+          aria-label="Уменьшить значение"
           onClick={() => dispatch(decrement())}
         >
-          Decrement
+          Уменьшить
         </button>
       </div>
     </div>
@@ -176,39 +196,49 @@ export function Counter() {
 }
 ```
 
-Now, any time you click the "Increment" and "Decrement buttons:
+<!-- Now, any time you click the "Increment" and "Decrement buttons:
 
 - The corresponding Redux action will be dispatched to the store
 - The counter slice reducer will see the actions and update its state
-- The `<Counter>` component will see the new state value from the store and re-render itself with the new data
+- The `<Counter>` component will see the new state value from the store and re-render itself with the new data -->
+Теперь в любое время вы можете нажать на кнопки "Увеличить" и "Уменьшить":
 
-## What You've Learned
+- Соответствующее Redux действие будет отправляться в контейнер
+- Reducer среза счётчика будет видеть действия и обновлять нужную часть состояния
+- Компонент `<Counter>` будет получать новое состояние из контейнера и перерисовываться с новыми данными -->
 
-That was a brief overview of how to set up and use Redux Toolkit with React. Recapping the details:
 
-:::tip Summary
+## Чему вы научились
 
-- **Create a Redux store with `configureStore`**
-  - `configureStore` accepts a `reducer` function as a named argument
-  - `configureStore` automatically sets up the store with good default settings
-- **Provide the Redux store to the React application components**
-  - Put a React Redux `<Provider>` component around your `<App />`
-  - Pass the Redux store as `<Provider store={store}>`
-- **Create a Redux "slice" reducer with `createSlice`**
-  - Call `createSlice` with a string name, an initial state, and named reducer functions
-  - Reducer functions may "mutate" the state using Immer
-  - Export the generated slice reducer and action creators
-- **Use the React Redux `useSelector/useDispatch` hooks in React components**
-  - Read data from the store with the `useSelector` hook
-  - Get the `dispatch` function with the `useDispatch` hook, and dispatch actions as needed
+<!-- That was a brief overview of how to set up and use Redux Toolkit with React. Recapping the details: -->
+Это было краткий осмотр того, как установить и использовать Redux Toolkit с React. Подводя итоги:
+
+
+:::tip Резюме
+
+- **Создайте Redux контейнер с `configureStore`**
+  - `configureStore` принимает функции `reducer` как именнованный аргумент
+  - `configureStore` автоматически устанавливает контейнер со значениями по умолчанию
+- **Предоставьте Redux контейнер компонентам React приложения**
+  - Оберните ваш `<App />` в компонент `<Provider>` из React Redux
+  - Передайте Redux контейнер `<Provider store={store}>`
+- **Создайте функцию reducer для Redux "среза" ("slice") при помощи `createSlice`**
+  - Вызовите `createSlice` со строковым именем среза, начальное значение и поименовано функции reducer'ов
+  - Reducer функции могут "мутировать" состояние, т.к. внутри использует библиотека Immer
+  - Экспортируйте созданный reducer среза и действия
+- **Используйте хуки `useSelector/useDispatch` из React Redux в React компонентах**
+  - Читайте данные из контейнера с помощью хука `useSelector`
+  - Получите функцию `dispatch` с хуком `useDispatch`, и вызовите её с определённым действием для изменения состояния
 
 :::
 
-### Full Counter App Example
+### Полный пример приложения со счётчиком
 
-The counter example app shown here is also the
+<!-- The counter example app shown here is also the -->
+Пример приложения счётчика также представлен здесь
 
-Here's the complete counter application as a running CodeSandbox:
+<!-- Here's the complete counter application as a running CodeSandbox: -->
+Вот полное приложение счетчика в виде запущенной CodeSandbox:
 
 <iframe
   class="codesandbox"
@@ -218,6 +248,6 @@ Here's the complete counter application as a running CodeSandbox:
   sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
 ></iframe>
 
-## What's Next?
+## Что дальше?
 
-We recommend going through [**the "Redux Essentials" and "Redux Fundamentals" tutorials in the Redux core docs**](https://redux.js.org/tutorials/index), which will give you a complete understanding of how Redux works, what Redux Toolkit and React Redux do, and how to use it correctly.
+Мы рекомендуем пройти [**руководства "Redux Essentials" и "Redux Fundamentals" из документации самого Redux**](https://redux.js.org/tutorials/index). Они дадут вам полное понимание того, как работает Redux, что делают Redux Toolkit и React Redux, а также как использовать их корректно.
