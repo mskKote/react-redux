@@ -1,7 +1,7 @@
 ---
 id: typescript-quick-start
-title: TypeScript быстрый старт
-sidebar_label: TypeScript быстрый старт
+title: Начало работы с TypeScript
+sidebar_label: Начало работы с TypeScript
 hide_title: true
 ---
 
