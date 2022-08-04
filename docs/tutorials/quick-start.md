@@ -27,7 +27,7 @@ hide_title: true
 ## Введение
 
 <!-- Welcome to the React Redux Quick Start tutorial! **This tutorial will briefly introduce you to React Redux and teach you how to start using it correctly**. -->
-Добро пожаловать во начальное руководство по React Redux! **Это руководство вкратце представит вам React Redux и обучит использовать его корректно**.
+Добро пожаловать в начальное руководство по React Redux! **Это руководство вкратце представит вам React Redux и обучит использовать его корректно**.
 
 ### Как читать это руководство?
 
