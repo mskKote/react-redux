@@ -22,7 +22,7 @@ Redux является независимой библиотекой, котор
 <!-- To understand why you should use React Redux, it may help to understand what a "UI binding library" does. -->
 Чтобы понять, почему вам следует использовать React Redux, стоит понять, что делает "библиотека привязки UI".
 
-:::info
+:::info Информация
 
 <!-- If you have questions about whether you should use Redux in general, please see these articles for discussion of when and why you might want to use Redux, and how it's intended to be used: -->
 Если вы задаётесь вопросом касательно использования Redux в общем, пожалуйста, прочитайте следующие статьи. Их понимание необходимо для дискуссии о том, когда и почему вы можете захотеть использовать Redux и как конкретно его использовать:
