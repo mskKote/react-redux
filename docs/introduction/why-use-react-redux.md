@@ -64,7 +64,7 @@ Redux является независимой библиотекой, котор
 Процесс подписки на контейнер, проверки на наличие обновленых данных и запуска перерисовки UI может быть более шаблонным и переиспользуемым. **Библиотека привязки UI как React Redux обрабатывает логику взаимодействия с Redux контейнером, поэтому при её использовании вам не придётся писать этот код самостоятельно.**
 
 
-:::info
+:::info Информация
 
 <!-- For a deeper look at how React Redux works internally and how it handles the store interaction for you, see **[Idiomatic Redux: The History and Implementation of React Redux](https://blog.isquaredsoftware.com/2018/11/react-redux-history-implementation/)**. -->
 Для глубокого погружения во внутреннюю работу библиотеки React Redux и как она обрабатывает взаимодействия с контейнером, прочитайте **["Идиоматика Redux: История и Имплементация React Redux"](https://blog.isquaredsoftware.com/2018/11/react-redux-history-implementation/)**.

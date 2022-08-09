@@ -505,7 +505,7 @@ export default connect(mapStateToProps)(TodoList)
 - [Вычисление производных данных](https://redux.js.org/recipes/computing-derived-data#sharing-selectors-across-multiple-components)
 - [Идиоматический Redux: Используем селекторы Reselect для инкапсуляции и производительности](https://blog.isquaredsoftware.com/2017/12/idiomatic-redux-using-reselect-selectors/)
 
-## Получить помощь
+## Помощь
 
 - [Reactiflux](https://www.reactiflux.com) Redux канал
 - [StackOverflow](https://stackoverflow.com/questions/tagged/react-redux)

@@ -82,10 +82,10 @@ export type AppDispatch = typeof store.dispatch
 // highlight-end
 ```
 
-### Типизируем хуки
+### Определяем типизированные хуки
 
 <!-- While it's possible to import the `RootState` and `AppDispatch` types into each component, it's **better to create typed versions of the `useDispatch` and `useSelector` hooks for usage in your application**. . This is important for a couple reasons: -->
-Пускай, возможно импортировать типы `RootState` и `AppDispatch` в каждый компонент, **лучше создать типизированные версии хуков `useDispatch` и `useSelector` для использовании в вашем приложении**. . Это важно по нескольким причинам:
+Пускай, возможно импортировать типы `RootState` и `AppDispatch` в каждый компонент, **лучше создать типизированные версии хуков `useDispatch` и `useSelector` для использовании в вашем приложении**. Это важно по нескольким причинам:
 
 <!-- - For `useSelector`, it saves you the need to type `(state: RootState)` every time
 - For `useDispatch`, the default `Dispatch` type does not know about thunks. In order to correctly dispatch thunks, you need to use the specific customized `AppDispatch` type from the store that includes the thunk middleware types, and use that with `useDispatch`. Adding a pre-typed `useDispatch` hook keeps you from forgetting to import `AppDispatch` where it's needed. -->
