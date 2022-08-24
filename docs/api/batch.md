@@ -3,7 +3,8 @@ id: batch
 title: batch
 sidebar_label: batch()
 hide_title: true
-description: 'API > batch: batching React rendering updates'
+# description: 'API > batch: batching React rendering updates'
+description: 'API > batch: группировка обновлений рендеринга React'
 ---
 
 &nbsp;
