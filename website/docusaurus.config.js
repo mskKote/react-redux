@@ -39,7 +39,7 @@ const siteConfig = {
   tagline: 'Официальная библиотека привязки Redux к React',
   // tagline: 'Official React bindings for Redux',
   url: 'https://react-redux.js.org', // Your website URL
-  baseUrl: '/',
+  baseUrl: '/react-redux-ru/',
   // Used for publishing and more
   projectName: 'react-redux',
   organizationName: 'reduxjs',
