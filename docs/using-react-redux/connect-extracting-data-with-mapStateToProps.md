@@ -1,10 +1,10 @@
 ---
 id: connect-mapstate
 # title: 'Connect: Extracting Data with mapStateToProps'
-title: 'Подключение: Извлечение данных с помощью mapStateToProps'
+title: 'Connect: Извлечение данных с помощью mapStateToProps'
 hide_title: true
 # sidebar_label: 'Connect: Extracting Data with mapStateToProps'
-sidebar_label: 'Подключение: Извлечение данных с помощью mapStateToProps'
+sidebar_label: 'Connect: Извлечение данных с помощью mapStateToProps'
 # description: 'Usage > mapState: options for reading state with connect'
 description: 'Использование > mapState: варианты чтения состояния с подключением'
 ---
