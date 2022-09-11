@@ -12,19 +12,19 @@ import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 
 <!-- # Getting Started with React Redux -->
-# Начало работы с with React Redux
+# Начало работы с React Redux
 
 <!-- [React Redux](https://github.com/reduxjs/react-redux) is the official [React](https://reactjs.org/) UI bindings layer for [Redux](https://redux.js.org/). It lets your React components read data from a Redux store, and dispatch actions to the store to update state. -->
-[React Redux](https://github.com/reduxjs/react-redux) - это официальная библиотека для [React](https://reactjs.org/), связывающая UI и [Redux](https://redux.js.org/). Это позволяет вашим React компонентам читать данные из Redux "контейнера" (store) и "отправлять" (dispatch) "действия" (actions) в контейнер для обновления "состояния" (state).
+[React Redux](https://github.com/reduxjs/react-redux) — это официальная библиотека для [React](https://reactjs.org/), связывающая UI и [Redux](https://redux.js.org/). Это позволяет вашим React компонентам читать данные из Redux "хранилища" (store) и "отправлять" (dispatch) "действия" (actions) в контейнер для обновления "состояния" (state).
 
 ## Установка
 
-React Redux 8.x требует **React 16.8.3 или выше** / **React Native 0.59 или выше** для использования React хуков.
+React Redux 8.x требует **React 16.8.3 или выше** / **React Native 0.59 или выше** для использования с React хуками.
 
-### Установка с Create React App
+### Create React App
 
 <!-- The recommended way to start new apps with React and Redux is by using the [official Redux+JS template](https://github.com/reduxjs/cra-template-redux) or [Redux+TS template](https://github.com/reduxjs/cra-template-redux-typescript) for [Create React App](https://github.com/facebook/create-react-app), which takes advantage of **[Redux Toolkit](https://redux-toolkit.js.org/)** and React Redux's integration with React components. -->
-Рекомендуемый путь для создания новых React приложений с Redux - использовать официальные шаблоны [Redux+JS](https://github.com/reduxjs/cra-template-redux) или [Redux+TS](https://github.com/reduxjs/cra-template-redux-typescript) для [Create React App](https://github.com/facebook/create-react-app), сделанные с применением **[Redux Toolkit](https://redux-toolkit.js.org/)** и интеграцией React Redux в React компонентах.
+Рекомендуемый путь для создания новых React приложений с Redux — использовать официальный шаблон [Redux+JS](https://github.com/reduxjs/cra-template-redux) или [Redux+TS](https://github.com/reduxjs/cra-template-redux-typescript) для [Create React App](https://github.com/facebook/create-react-app). Шаблоны используют **[Redux Toolkit](https://redux-toolkit.js.org/)** и содержат пример интеграции React Redux в React компонентах.
 
 ```bash
 # Шаблон Redux на JS
@@ -34,7 +34,7 @@ npx create-react-app my-app --template redux
 npx create-react-app my-app --template redux-typescript
 ```
 
-### Внедрение в существующее React приложение
+### Внедрение React Redux в существующее React приложение
 
 Для использования React Redux в вашем приложении установите зависимость:
 
@@ -46,15 +46,15 @@ npm install react-redux
 yarn add react-redux
 ```
 
-Вам также потреюуется [установить Redux](https://redux.js.org/introduction/installation) и [настроить Redux контейнер](https://redux.js.org/recipes/configuring-your-store/) в вашем приложении.
+Затем вам потребуется [установить Redux](https://redux.js.org/introduction/installation) и [настроить Redux хранилище (store)](https://redux.js.org/recipes/configuring-your-store/).
 
-React-Redux v8 разработан на TypeScript, следовательно, типизация встроена автоматически.
+React-Redux v8 разработан на TypeScript, следовательно типизация встроена автоматически.
 
 ## Обзор API 
 
 ### `Provider`
 
-React Redux содержит компонент `<Provider />`, который делает Redux контейнер доступным всему приложению.
+React Redux предоставляет компонент `<Provider />`, который делает Redux хранилище (store) доступным всему приложению.
 
 ```jsx
 import React from 'react'
@@ -77,10 +77,10 @@ root.render(
 ### Хуки
 
 <!-- React Redux provides a pair of custom React hooks that allow your React components to interact with the Redux store. -->
-React Redux предоставляет пару пользовательских React хуков для взаимодействия с Redux контейнером из ваших компонентов.
+React Redux предоставляет пару React хуков для взаимодействия с Redux хранилищем (store) из ваших компонентов.
 
 <!-- `useSelector` reads a value from the store state and subscribes to updates, while `useDispatch` returns the store's `dispatch` method to let you dispatch actions. -->
-`useSelector` читает значение из контейнера состояния и подписывается на обновления, а `useDispatch` возвращает метод `dispatch`, позволяющий отправлять сообщения в контейнер.
+Хук `useSelector` читает значение из состояния (state) хранилища (store) и подписывается на обновление состояния (state). И хук `useDispatch`, возвращающий метод `dispatch`, для отправки сообщений в хранилище (store).
 
 
 ```jsx
@@ -118,7 +118,6 @@ export function Counter() {
           -
         </button>
       </div>
-      {/* omit additional rendering output here [SIC] И КАК ЭТО ПЕРЕВОДИТЬ?*/}
     </div>
   )
 }
@@ -126,15 +125,15 @@ export function Counter() {
 
 ## Изучение React Redux
 
-### "Узнай современный Redux" (Запись трансляции)
+### Запись трансляции "узнай современный Redux"
 
-Разработчик Redux Марк Эриксон появился на шоу "Learn with Jason", чтобы объяснить, как мы рекомендуем использовать Redux сегодня. Запись включает в себя разработку React приложения на Typescript с Redux Toolkit, Redux-Redux хуками и новым инструментом для запросов RTK Query.
+Разработчик Redux Марк Эриксон появился на шоу "Learn with Jason", чтобы объяснить, как рекомендуется использовать Redux сегодня. Запись включает в себя разработку React приложения на Typescript с Redux Toolkit, Redux-Redux хуками и новым инструментом для отправки и обработки запросов, RTK Query.
 
-Посмотри [заметки шоу "Узнай современный Redux"](https://www.learnwithjason.dev/let-s-learn-modern-redux) для транскрипции и ссылки на код приложения.
+Посмотрите [заметки шоу](https://www.learnwithjason.dev/let-s-learn-modern-redux) для транскрипции и ссылки на код приложения.
 
 <LiteYouTubeEmbed 
     id="9zySeP5vH9c"
-    title="Learn Modern Redux - Redux Toolkit, React-Redux Hooks, and RTK Query"
+    title="Узнай современный Redux - Redux Toolkit, React-Redux хуки и RTK Query"
 />
 
 ## Помощь и дискуссия
@@ -142,11 +141,11 @@ export function Counter() {
 <!-- The **[#redux channel](https://discord.gg/0ZcbPKXt5bZ6au5t)** of the **[Reactiflux Discord community](http://www.reactiflux.com)** is our official resource for all questions related to learning and using Redux. Reactiflux is a great place to hang out, ask questions, and learn - come join us! -->
 **[Канал #redux в Discord](https://discord.gg/0ZcbPKXt5bZ6au5t)** от **[сообщества Reactiflux](http://www.reactiflux.com)** - это наш официальный ресурс для всех вопросов касательно изучения и использования Redux. Reactiflux — отличное место, где можно пообщаться, задать вопросы и узнать что-то новое — присоединяйтесь к нам!
 
-Вы также можете задать вопросы на [Stack Overflow](https://stackoverflow.com) используя **[#redux тэг](https://stackoverflow.com/questions/tagged/redux)**.
+Вы также можете задать вопросы на [Stack Overflow](https://stackoverflow.com), используя **[тег #redux](https://stackoverflow.com/questions/tagged/redux)**.
 
 ## Документация на разных языках
-- [English - оригинальная библиотека](https://react-redux.js.org)
-- [Portuguese](https://fernandobelotto.github.io/react-redux)
+- [English — оригинальная документация](https://react-redux.js.org)
+- [Português](https://fernandobelotto.github.io/react-redux)
 
 
-Оригинальная документация написана на английском. На русский язык была переведена усилиями @mskKote и @shchukin_ve. Если вы хотите поддержать перевод, присоединяйтесь в [наш Telegram чат](https://t.me/+E1Kjcjrrip8zZDFi)
+Оригинальная английская документация переведена на русский язык усилиями @mskKote и @shchukin_ve. Если вы хотите поддержать перевод, присоединяйтесь в [наш Telegram чат](https://t.me/+E1Kjcjrrip8zZDFi)
