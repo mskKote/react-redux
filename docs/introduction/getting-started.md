@@ -15,7 +15,7 @@ import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
 # Начало работы с React Redux
 
 <!-- [React Redux](https://github.com/reduxjs/react-redux) is the official [React](https://reactjs.org/) UI bindings layer for [Redux](https://redux.js.org/). It lets your React components read data from a Redux store, and dispatch actions to the store to update state. -->
-[React Redux](https://github.com/reduxjs/react-redux) — это официальная библиотека для [React](https://reactjs.org/), связывающая UI и [Redux](https://redux.js.org/). Это позволяет вашим React компонентам читать данные из Redux "хранилища" (store) и "отправлять" (dispatch) "действия" (actions) в контейнер для обновления "состояния" (state).
+[React Redux](https://github.com/reduxjs/react-redux) — это официальная библиотека для [React](https://reactjs.org/), связывающая UI и [Redux](https://redux.js.org/). Это позволяет вашим React компонентам читать данные из Redux "хранилища" (store) и "отправлять" (dispatch) "действия" (actions) в хранилище для обновления "состояния" (state).
 
 ## Установка
 
