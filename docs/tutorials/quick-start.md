@@ -12,7 +12,7 @@ hide_title: true
 :::tip Чему вы научитесь?
 
 <!-- - How to set up and use Redux Toolkit with React Redux -->
-- Как установить и использовать Redux Toolkit вместе с React Redux
+- Установке и использованию Redux Toolkit вместе с React Redux
 
 :::
 
@@ -32,7 +32,7 @@ hide_title: true
 ### Как читать это руководство?
 
 <!-- This page will focus on just how to set up a Redux application with Redux Toolkit and the main APIs you'll use. For explanations of what Redux is, how it works, and full examples of how to use Redux Toolkit, see [the Redux core docs tutorials](https://redux.js.org/tutorials/index). -->
-Эта страница будет акцентировать внимание только на первичную установку приложения с Redux и Redux Toolkit, а также познакомит с главными API, которые вы будете использовать. Для понимания, что такое Redux, как он работает и изучения полных примеров использования Redux Toolkit, посмотрите [руководства на документации самого Redux](https://redux.js.org/tutorials/index).
+Эта страница будет акцентировать внимание только на первичную установку приложения с Redux и Redux Toolkit, а также познакомит с главными API, которые вы будете использовать. Для понимания работы Redux и изучения полных примеров использования Redux Toolkit, посмотрите [руководства на документации самого Redux](https://redux.js.org/tutorials/index).
 
 <!-- For this tutorial, we assume that you're using Redux Toolkit and React Redux together, as that is the standard Redux usage pattern. The examples are based on [a typical Create-React-App folder structure](https://create-react-app.dev/docs/folder-structure) where all the application code is in a `src`, but the patterns can be adapted to whatever project or folder setup you're using. -->
 В этом руководстве мы предположим, что вы используете Redux Toolkit и React Redux вместе, как стандартный шаблон использования Redux. В примерах используется [типичная структура папок, созданная Create-React-App](https://create-react-app.dev/docs/folder-structure), где весь код приложения хранится в папке `src`. Как бы то ни было, описанные паттерны могут адаптированы для любого проекта и файловой структуры, которую вы используете.
@@ -250,4 +250,4 @@ export function Counter() {
 
 ## Что дальше?
 
-Мы рекомендуем пройти [**руководства "Redux Essentials" и "Redux Fundamentals" из документации самого Redux**](https://redux.js.org/tutorials/index). Они дадут вам полное понимание того, как работает Redux, что делают Redux Toolkit и React Redux, а также как использовать их корректно.
+Мы рекомендуем пройти [**руководства "Redux Essentials" и "Redux Fundamentals" из документации самого Redux**](https://redux.js.org/tutorials/index). Они дадут вам полное понимание работы Redux, что назначение Redux Toolkit и React Redux, а также способ их корректного использования.

@@ -17,7 +17,7 @@ Redux является независимой библиотекой, котор
 Использование Redux с любым фреймворком обычно включает библиотеку "UI привязки" для связи между Redux и этим фреймворком, нежели прямое взаимодействие с Redux хранилищем (store) из UI кода.
 
 <!-- **React Redux is the official Redux UI binding library for React**. If you are using Redux and React together, you should also use React Redux to bind these two libraries. -->
-**React Redux - это официальная библиотека привязки Redux к React**. Если вы используете Redux и React вместе, мы рекомендуем рассмотреть React Redux для их связи.
+**React Redux — это официальная библиотека привязки Redux к React**. Если вы используете Redux и React вместе, мы рекомендуем рассмотреть React Redux для их связи.
 
 <!-- To understand why you should use React Redux, it may help to understand what a "UI binding library" does. -->
 Причины использовать React Redux исходят из понимания работы "библиотеки привязки UI".
