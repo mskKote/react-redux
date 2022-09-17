@@ -157,7 +157,7 @@ export const counterSlice = createSlice({
   },
 })
 
-// Сгенерированные создатели действий/ action creators
+// Сгенерированные Создатели Действий/ action creators
 export const { increment, decrement, incrementByAmount } = counterSlice.actions
 
 // Весь остальной код может использовать тип `RootState`
@@ -167,7 +167,7 @@ export default counterSlice.reducer
 ```
 
 <!-- The generated action creators will be correctly typed to accept a `payload` argument based on the `PayloadAction<T>` type you provided for the reducer. For example, `incrementByAmount` requires a `number` as its argument. -->
-Сгенерированные создатели действий будут корректно типизированы для принятия аргумента `payload`, основанного на типе `PayloadAction<T>`, который вы передаёте в функцию редюсера(reducer). Например, `incrementByAmount` требует `number` в качестве аргумента.
+Сгенерированные Создатели Действий будут корректно типизированы для принятия аргумента `payload`, основанного на типе `PayloadAction<T>`, который вы передаёте в функцию редюсера(reducer). Например, `incrementByAmount` требует `number` в качестве аргумента.
 
 <!-- In some cases, [TypeScript may unnecessarily tighten the type of the initial state](https://github.com/reduxjs/redux-toolkit/pull/827). If that happens, you can work around it by casting the initial state using `as`, instead of declaring the type of the variable: -->
 В некоторых случаях [TypeScript может излишне сузить тип начального значения](https://github.com/reduxjs/redux-toolkit/pull/827). Если это случилось, то используйте `as` вместо объявления нового типа:
