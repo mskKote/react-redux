@@ -11,13 +11,13 @@ description: 'Работа с TypeScript: корректная типизаци�
 # Работа с TypeScript
 
 <!-- As of React-Redux v8, React-Redux is fully written in TypeScript, and the types are included in the published package. The types also export some helpers to make it easier to write typesafe interfaces between your Redux store and your React components. -->
-Начиная с 8-ой версии, React-Redux полностью написан на TypeScript и типизация включена в распространяемый пакет. Вдобавок, типизация содержит в себе несколько помощников (helpers) для упрощения написания типобезопасных интерфейсов между Redux хранилищем(store) и React компонентами.
+Начиная с 8-ой версии, React-Redux полностью написан на TypeScript, тем самым типизация включена в распространяемый пакет. Вдобавок, типизация содержит в себе несколько помощников (helpers) для упрощения написания типобезопасных интерфейсов между Redux хранилищем(store) и React компонентами.
 
 :::info Информация
 
 <!-- The recently updated `@types/react@18` major version has changed component definitions to remove having `children` as a prop by default. This causes errors if you have multiple copies of `@types/react` in your project. To fix this, tell your package manager to resolve `@types/react` to a single version. Details: -->
 
-В недавно обновлённой главной версии `@types/react@18` изменилось объявление компонентов: был удалён пропс по умолчанию - `children`. Это является причиной ошибок при множестве установленных версий `@types/react` в вашем проекте. Для решения воспользуйтесь вашим пакетным менеджером, чтобы привести `@types/react` к единой версии. Детали:
+В недавно обновлённой основной версии `@types/react@18` изменилось определение компонентов, был удален пропс `children`, существовавший по умолчанию. В случае наличия несколько копий `@types/react` в вашем проекте, это будет вызывать ошибки. Для исправления воспользуйтесь вашим менеджером пакетов, чтобы привести `@types/react` к единственной версии. Детали:
 
 https://github.com/facebook/react/issues/24304#issuecomment-1094565891
 
@@ -30,20 +30,20 @@ https://github.com/facebook/react/issues/24304#issuecomment-1094565891
 Мы предполагаем, что типичный Redux проект использует Redux Toolkit вместе с React Redux.
 
 <!-- [Redux Toolkit](https://redux-toolkit.js.org) (RTK) is the standard approach for writing modern Redux logic. RTK is already written in TypeScript, and its API is designed to provide a good experience for TypeScript usage. -->
-[Redux Toolkit](https://redux-toolkit.js.org) (RTK) - стандартный подход для написания современной Redux логики. RTK написан на TypeScript и его API разработано с целью дать хороший опыт вместе с TypeScript.
+[Redux Toolkit](https://redux-toolkit.js.org) (RTK) — стандартный подход для написания современной Redux логики. RTK написан на TypeScript и его API разработано с целью дать хороший опыт вместе с TypeScript.
 
 <!-- The [Redux+TS template for Create-React-App](https://github.com/reduxjs/cra-template-redux-typescript) comes with a working example of these patterns already configured. -->
-[Redux+TS шаблон для Create-React-App](https://github.com/reduxjs/cra-template-redux-typescript) устанавливается с рабочим примером. -->
+[Шаблон Redux+TS для Create-React-App](https://github.com/reduxjs/cra-template-redux-typescript) содержит настроенный проект.
 
 
 <!-- ### Define Root State and Dispatch Types -->
-### Определение корневого состояния (Root State) и типов отправки (Dispatch Types)
+### Определение корневого состояние и типов для отправки (dispatch)
 
 <!-- Using [configureStore](https://redux-toolkit.js.org/api/configureStore) should not need any additional typings. You will, however, want to extract the `RootState` type and the `Dispatch` type so that they can be referenced as needed. Inferring these types from the store itself means that they correctly update as you add more state slices or modify middleware settings. -->
-Использование [configureStore](https://redux-toolkit.js.org/api/configureStore) не нуждается в дополнительной типизации. Как бы то ни было, вам захочется извлечь типы `RootState` и `Dispatch`, чтобы ссылаться на них при необходимости. Выведение этих типов из контейнера само по себе означает их корректное обновление при добавлении ещё нескольких срезов состояния контейнера или модификации настроек middleware.
+Использование [configureStore](https://redux-toolkit.js.org/api/configureStore) не нуждается в дополнительной типизации. Несмотря на это вам следуют извлечь типы `RootState` и `Dispatch`, чтобы на них можно было ссылаться по мере необходимости. Извлечение этих типов из хранилища(store) означает, что они будут корректно обновляться по мере добавления новых частей хранилища(store) или при модификации настроек middleware.
 
 <!-- Since those are types, it's safe to export them directly from your store setup file such as `app/store.ts` and import them directly into other files. -->
-В силу того, что это типы, можно не опасаться за безопасность при экспорте их из файла с настройкой контейнера `app/store.ts` и последующем импорте в другие файлы.
+Так как они являются типами, можно не переживать о безопасности при экспорте их из файла с настройкой хранилища `app/store.ts` и последующем импортировании в других файлах.
 
 
 ```ts title="app/store.ts"
@@ -59,7 +59,7 @@ const store = configureStore({
 })
 
 // highlight-start
-// Выведение типов `RootState` и `AppDispatch` из контейнера
+// Выведение типов `RootState` и `AppDispatch` из хранилища
 export type RootState = ReturnType<typeof store.getState>
 // Выведенные типы: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch
@@ -70,15 +70,15 @@ export type AppDispatch = typeof store.dispatch
 ### Определяем типизированные хуки
 
 <!-- While it's possible to import the `RootState` and `AppDispatch` types into each component, it's better to **create pre-typed versions of the `useDispatch` and `useSelector` hooks for usage in your application**. This is important for a couple reasons: -->
-Пускай, возможно импортировать типы `RootState` и `AppDispatch` в каждый компонент, **лучше создать типизированные версии хуков `useDispatch` и `useSelector` для использовании в вашем приложении**. Это важно по нескольким причинам:
+Пускай, имеется возможность импортировать типы `RootState` и `AppDispatch` в каждый компонент, **лучше создать типизированные версии хуков `useDispatch` и `useSelector`**. Это важно по нескольким причинам:
 
 <!-- - For `useSelector`, it saves you the need to type `(state: RootState)` every time
 - For `useDispatch`, the default `Dispatch` type does not know about thunks or other middleware. In order to correctly dispatch thunks, you need to use the specific customized `AppDispatch` type from the store that includes the thunk middleware types, and use that with `useDispatch`. Adding a pre-typed `useDispatch` hook keeps you from forgetting to import `AppDispatch` where it's needed. -->
-- Для `useSelector` это избавляет от необходимости каждый раз печатать `(state: RootState)`
-- Для `useDispatch`, тип значение по умолчанию `Dispatch` не знаком с thunks. С целью корректной отправки thunks, вам необходимо использовать тип `AppDispatch` из хранилища, который включает типы из thunk middleware и использует это с `useDispatch`. Добавление предварительного хука `useDispatch` помогает вам не забыть о необходимости импортировать `AppDispatch`, где это необходимо.
+- `useSelector` избавляет вас от необходимости каждый раз печатать `(state: RootState)`
+- `useDispatch`: тип `Dispatch` по умолчанию не знаком с thunks. С целью корректной отправки thunks, вам необходимо использовать специальный тип `AppDispatch` из хранилища (store), который включает типы из thunk middleware и использует их вместе с `useDispatch`. С помощью типизированного хука `useDispatch` можно забыть о необходимости импортировать `AppDispatch`.
 
 <!-- Since these are actual variables, not types, it's important to define them in a separate file such as `app/hooks.ts`, not the store setup file. This allows you to import them into any component file that needs to use the hooks, and avoids potential circular import dependency issues. -->
-Поскольку это настоящие переменные, а не типы, важно определить их в отдельном файле, таком как `app/hooks.ts`, а не в файле настройки контейнера. Это позволит вам импортировать их в любой компонент, который должен использовать хуки, и избежать потенциальную проблему с импортом из-за циклической зависимости.
+Поскольку это переменные, а не типы, важно определить их в отдельном файле, таком как `app/hooks.ts`, а не в файле настройки хранилища(store). Это позволит вам импортировать их в любой компонент, который должен использовать хуки, и избежать потенциальную проблему с импортом из-за циклической зависимости.
 
 ```ts title="app/hooks.ts"
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
@@ -99,7 +99,7 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 ### Типизация хука `useSelector`
 
 <!-- When writing selector functions for use with `useSelector`, you should explicitly define the type of the `state` parameter. TS should be able to then infer the return type of the selector, which will be reused as the return type of the `useSelector` hook: -->
-Когда вы пишете функцию селектор в `useSelector`, вам следует явно определить тип параметра `state`. Так TS сможет вывести тип возвращаемого значения функции селектора, который в свою очередь будет использован как возвращаемый тип самого хука `useSelector`:
+Когда вы пишете функцию селектор в `useSelector`, вам следует явно определить тип параметра `state`. Так Typescript сможет вывести тип возвращаемого значения функции селектора, который в свою очередь будет использован как возвращаемый тип самого хука `useSelector`:
 
 ```ts
 interface RootState {
@@ -129,7 +129,7 @@ const dispatch = useDispatch()
 ```
 
 <!-- If you have a customized version of the `Dispatch` type, you may use that type explicitly: -->
-Если у вас видоизменённая версия типа `Dispatch`, вы можете использовать её явно:
+Если у вы изменяете тип `Dispatch`, вы можете использовать его явно:
 
 ```ts
 // store.ts
@@ -146,7 +146,7 @@ const dispatch: AppDispatch = useDispatch()
 ### Автовыведение типов подключенных пропсов
 
 <!-- `connect` consists of two functions that are called sequentially. The first function accepts `mapState` and `mapDispatch` as arguments, and returns a second function. The second function accepts the component to be wrapped, and returns a new wrapper component that passes down the props from `mapState` and `mapDispatch`. Normally, both functions are called together, like `connect(mapState, mapDispatch)(MyComponent)`. -->
-`connect` содержит 2 функции, которые вызываются одна за другой. Первая функция в качестве аргументов принимает `mapState` и `mapDispatch` и возвращает вторую функцию. Вторая функция принимает компонент для того, чтобы обёрнуть его, и возвращает новый компонент обёртку, который принимает пропсы из `mapState` и `mapDispatch`. Обычно обе функции вызываются вместе: `connect(mapState, mapDispatch)(MyComponent)`.
+`connect` содержит 2 функции, вызывающиеся одна за другой. Первая функция в качестве аргументов принимает `mapState` и `mapDispatch` и возвращает вторую функцию. Вторая функция принимает компонент для того, чтобы обёрнуть его, и возвращает новый компонент обёртку, который принимает пропсы из `mapState` и `mapDispatch`. Обычно обе функции вызываются вместе: `connect(mapState, mapDispatch)(MyComponent)`.
 
 
 <!-- The package includes a helper type, `ConnectedProps`, that can extract the return types of `mapStateToProps` and `mapDispatchToProps` from the first function. This means that if you split the `connect` call into two steps, all of the "props from Redux" can be inferred automatically without having to write them by hand. While this approach may feel unusual if you've been using React-Redux for a while, it does simplify the type declarations considerably. -->
@@ -215,7 +215,7 @@ export default connector(MyComponent)
 <!-- ### Manually Typing `connect` -->
 ### Ручная типизация `connect`
 
-Компонент высшего порядка `connect` несколько сложно типизировать, ведь у него 3 источника пропсов: `mapStateToProps`, `mapDispatchToProps` и пропсы, которые были переданы из родительского компонента. Здесь полный пример, как выглядит его типизация вручную:
+Компонент высшего порядка `connect` несколько сложно типизировать, ведь у него 3 источника пропсов: `mapStateToProps`, `mapDispatchToProps` и пропсы, переданные из родительского компонента. Здесь полный пример, как выглядит его типизация вручную:
 
 ```tsx
 import { connect } from 'react-redux'
@@ -250,7 +250,7 @@ const MyComponent = (props: Props) => (
   </div>
 )
 
-// Типичное использование: `connect` вызывается после определения компонента
+// Типичное использование: функция `connect` вызывается после определения компонента
 export default connect<StateProps, DispatchProps, OwnProps>(
   mapState,
   mapDispatch
