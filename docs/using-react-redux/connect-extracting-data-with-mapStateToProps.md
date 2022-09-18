@@ -15,12 +15,12 @@ description: 'Использование > mapState: варианты чтени
 # Connect: Извлечение данных с помощью `mapStateToProps`
 
 <!-- As the first argument passed in to `connect`, `mapStateToProps` is used for selecting the part of the data from the store that the connected component needs. It’s frequently referred to as just `mapState` for short. -->
-В качестве первого аргумента, переданного в `connect`, `mapStateToProps` используется для выбора части данных из хранилища (store), которые нужны подключенному компоненту. Для краткости его часто называют просто `mapState`.
+`mapStateToProps` — первый аргумент `connect`,  используется для выбора той части данных из хранилища(store), которая нужна подключенному компоненту. Для краткости его часто называют просто `mapState`.
 
 <!-- - It is called every time the store state changes.
 - It receives the entire store state, and should return an object of data this component needs. -->
-- Она вызывается каждый раз, когда изменяется состояние хранилища (store).
-- Она получает все состояние хранилища (store) и должна возвращать объект данных, необходимых этому компоненту.
+- Вызывается при каждом изменении состояние хранилища(store).
+- Получает всё состояние хранилища(store) и возвращает объект с необходимыми этому компоненту данными.
 
 <!-- ## Defining `mapStateToProps` -->
 ## Определение `mapStateToProps'
@@ -33,13 +33,13 @@ function mapStateToProps(state, ownProps?)
 ```
 
 <!-- It should take a first argument called `state`, optionally a second argument called `ownProps`, and return a plain object containing the data that the connected component needs. -->
-Она должна принимать первый аргумент с именем `state`, второй аргумент `own Props` необязателен, и возвращать простой объект, содержащий данные, необходимые подключенному компоненту.
+Она принимает первый аргумент, именующийся `state` и необязательно второй аргумент `own Props`. Функция должна возвращать простой объект, содержащий данные, необходимые подключенному компоненту.
 
 <!-- This function should be passed as the first argument to `connect`, and will be called every time when the Redux store state changes. If you do not wish to subscribe to the store, pass `null` or `undefined` to `connect` in place of `mapStateToProps`. -->
-Эта функция должна быть передана в качестве первого аргумента для `connect` и будет вызываться каждый раз, когда изменяется состояние хранилища (store) Redux. Если вы не хотите подписываться на хранилище (store), передайте `null` или `undefined` в `connect` вместо `mapStateToProps`.
+Эта функция должна быть передана в качестве первого аргумента для `connect` и будет вызываться при каждом изменении состояние Redux хранилища(store). Если вы не хотите подписываться на хранилище(store), передайте `null` или `undefined` в `connect` вместо `mapStateToProps`.
 
 <!-- **It does not matter if a `mapStateToProps` function is written using the `function` keyword (`function mapState(state) { }` ) or as an arrow function (`const mapState = (state) => { }` )** - it will work the same either way. -->
-****Не имеет значения, написана ли функция `mapStateToProps` с использованием ключевого слова `function` (`function map State(состояние) { }` ) или в виде стрелочной функции (`const mapState = (состояние) => { }` )** - это будет работать одинаково в любом случае.
+****Не имеет значения, написана ли функция `mapStateToProps` с использованием ключевого слова `function` (`function map State(состояние) { }` ) или в виде стрелочной функции (`const mapState = (состояние) => { }` )** — это будет работать одинаково в любом случае.
 
 <!-- ### Arguments -->
 ### Аргументы
@@ -51,10 +51,10 @@ function mapStateToProps(state, ownProps?)
 #### `state`
 
 <!-- The first argument to a `mapStateToProps` function is the entire Redux store state (the same value returned by a call to `store.getState()`). Because of this, the first argument is traditionally just called `state`. (While you can give the argument any name you want, calling it `store` would be incorrect - it's the "state value", not the "store instance".) -->
-Первым аргументом функции `mapStateToProps` является все состояние хранилища Redux (то же значение, возвращаемое вызовом `store.getState()`). Из-за этого первый аргумент традиционно называется просто `state`. (Хотя вы можете присвоить аргументу любое имя, которое захотите, называть его `store` было бы неправильно - это "значение состояния", а не "экземпляр хранилища (store)".)
+Первым аргументом функции `mapStateToProps` является всё состояние хранилища Redux (то же значение, возвращаемое вызовом `store.getState()`). Из-за этого первый аргумент традиционно называется просто `state`. (Хотя вы можете присвоить аргументу любое имя, называть его `store` было бы неправильно — это "значение состояния", а не "экземпляр хранилища(store)".)
 
 <!-- The `mapStateToProps` function should always be written with at least `state` passed in. -->
-Функция `mapStateToProps` всегда должна быть по крайней мере с переданным `state`.
+Функция `mapStateToProps` всегда должна объявляться по крайней мере с переданным `state`.
 
 ```js
 // TodoList.js
@@ -71,7 +71,7 @@ export default connect(mapStateToProps)(TodoList)
 #### `ownProps` (необязательна)
 
 <!-- You may define the function with a second argument, `ownProps`, if your component needs the data from its own props to retrieve data from the store. This argument will contain all of the props given to the wrapper component that was generated by `connect`. -->
-Вы можете определить функцию со вторым аргументом `ownProps`, если вашему компоненту нужны данные из его собственных пропсов для извлечения данных из хранилища (store). Этот аргумент будет содержать все пропсы, переданные компоненту-обертке, который был сгенерирован `connect`.
+Вы можете определить функцию `mapStateToProps` со вторым аргументом `ownProps`, если вашему компоненту нужны данные из его собственных пропсов для извлечения данных из хранилища(store). Этот аргумент будет содержать все пропсы, переданные компоненту-обертке, который сгенерировал `connect`.
 
 ```js
 // Todo.js
@@ -86,13 +86,13 @@ function mapStateToProps(state, ownProps) {
   return { todo, visibilityFilter }
 }
 
-// Позже в вашем приложении родительский компонент рендерится:
+// Позже, в вашем приложении родительский компонент отрисовывает:
 ;<ConnectedTodo id={123} />
 // и ваш компонент получает props.id, props.todo и props.visibilityFilter
 ```
 
 <!-- You do not need to include values from `ownProps` in the object returned from `mapStateToProps`. `connect` will automatically merge those different prop sources into a final set of props. -->
-Вам не нужно включать значения из `ownProps` в объект, возвращаемый из `mapStateToProps`. `connect` автоматически объединит эти разные источники пропсов в окончательный набор пропсов.
+Вам не нужно включать значения из `ownProps` в объект, возвращаемый из `mapStateToProps`. `connect` автоматически объединит разные источники пропсов в окончательный набор пропсов.
 
 <!-- ### Return -->
 ### Возвращение
@@ -103,7 +103,7 @@ function mapStateToProps(state, ownProps) {
 <!-- - Each field in the object will become a prop for your actual component
 - The values in the fields will be used to determine if your component needs to re-render -->
 - Каждое поле в объекте станет пропсом для вашего компонента.
-- Значения в полях будут использоваться для определения необходимости повторного рендеринга вашего компонента.
+- Значения в полях будут использоваться при определении необходимости повторного рендеринга вашего компонента.
 
 <!-- For example: -->
 Например:
@@ -121,13 +121,13 @@ function mapStateToProps(state) {
 ```
 
 <!-- > Note: In advanced scenarios where you need more control over the rendering performance, `mapStateToProps` can also return a function. In this case, that function will be used as the final `mapStateToProps` for a particular component instance. This allows you to do per-instance memoization. See the [Advanced Usage: Factory Functions](../api/connect.md) section of the docs for more details, as well as [PR #279](https://github.com/reduxjs/react-redux/pull/279) and the tests it adds. Most apps never need this. -->
-> Примечание. В продвинутых сценариях, где требуется больший контроль над производительностью рендеринга, `mapStateToProps` также может возвращать функцию. В этом случае эта функция будет использоваться как окончательный `mapStateToProps` для конкретного экземпляра компонента. Это позволяет вам делать мемоизацию для каждого экземпляра. Смотри [Расширенное использование: фабричные функции](../api/connect.md) для дополнительных сведений в разделе документации, а также в [PR #279](https://github.com/reduxjs/react-redux/ pull/279) и тесты, которые он добавляет. Большинству приложений это никогда не понадобится.
+> Примечание. В продвинутых сценариях, где требуется больше контроля над производительностью рендеринга, `mapStateToProps` также может возвращать функцию. В этом случае эта функция будет использоваться как окончательный `mapStateToProps` для конкретного экземпляра компонента. Это позволяет вам делать мемоизацию для каждого экземпляра. Смотри [Расширенное использование: фабричные функции](../api/connect.md) для дополнительных сведений, а также [PR #279](https://github.com/reduxjs/react-redux/ pull/279) и тесты, которые он добавляет. Большинству приложений это никогда не понадобится.
 
 <!-- ## Usage Guidelines -->
 ## Руководство по использованию
 
 <!-- ### Let `mapStateToProps` Reshape the Data from the Store -->
-### Пусть `mapStateToProps` изменяет данные из хранилища (store)
+### Пусть `mapStateToProps` изменяет данные из хранилища(store)
 
 <!-- `mapStateToProps` functions can, and should, do a lot more than just `return state.someSlice`. **They have the responsibility of "re-shaping" store data as needed for that component.** This may include returning a value as a specific prop name, combining pieces of data from different parts of the state tree, and transforming the store data in different ways. -->
 Функции `mapStateToProps` могут и должны делать намного больше, чем просто возвращать `state.someSlice`. **Они несут ответственность за «изменение» данных хранилища в соответствии с потребностями этого компонента.** Они могут возвращать значения в качестве определенного имени пропсов, объединять фрагменты данных из разных частей дерева состояний и преобразовывать данные хранилища (store) разными способами.
@@ -136,22 +136,22 @@ function mapStateToProps(state) {
 ### Использование функций Selector для извлечения и преобразования данных
 
 <!-- We highly encourage the use of "selector" functions to help encapsulate the process of extracting values from specific locations in the state tree. Memoized selector functions also play a key role in improving application performance (see the following sections in this page and the [Advanced Usage: Computing Derived Data](https://redux.js.org/recipes/computing-derived-data) page for more details on why and how to use selectors.) -->
-Мы настоятельно рекомендуем использовать функции «Selector», чтобы помочь инкапсулировать процесс извлечения значений из определенных мест в дереве состояний. Функции мемоизированного селектора также играют ключевую роль в повышении производительности приложения (см. следующие разделы на этой странице и на странице [Продвинутое использование: вычисление полученных данных](https://redux.js.org/recipes/computing-derived-data) для получения более подробной информации о том, почему и как использовать селекторы.)
+Мы настоятельно рекомендуем использовать функции «Selector», чтобы помочь инкапсулировать процесс извлечения значений из определенных мест в дереве состояний. Функции мемоизированного селектора также играют ключевую роль в повышении производительности приложения (см. следующие разделы на этой странице и на странице Redux [Продвинутое использование: вычисление полученных данных](https://redux.js.org/recipes/computing-derived-data) для получения более подробной информации о том, почему и как использовать селекторы.)
 
 <!-- ### `mapStateToProps` Functions Should Be Fast -->
 ### Функции `mapStateToProps` должны быть быстрыми
 
 <!-- Whenever the store changes, all of the `mapStateToProps` functions of all of the connected components will run. Because of this, your `mapStateToProps` functions should run as fast as possible. This also means that a slow `mapStateToProps` function can be a potential bottleneck for your application. -->
-Всякий раз, когда хранилище (store) изменяется, все функции `mapStateToProps` всех подключенных компонентов будут исполняться. Из-за этого ваши функции `mapStateToProps` должны работать как можно быстрее. Это также означает, что медленная функция `mapStateToProps` может быть потенциальным узким местом для вашего приложения.
+Всякий раз, когда хранилище (store) изменяется, все функции `mapStateToProps` всех подключенных компонентов будут исполняться. Из-за этого ваши функции `mapStateToProps` должны работать как можно быстрее. Это также означает, что медленная функция `mapStateToProps` может быть потенциальным узким местом вашего приложения.
 
 <!-- As part of the "re-shaping data" idea, `mapStateToProps` functions frequently need to transform data in various ways (such as filtering an array, mapping an array of IDs to their corresponding objects, or extracting plain JS values from Immutable.js objects). These transformations can often be expensive, both in terms of cost to execute the transformation, and whether the component re-renders as a result. If performance is a concern, ensure that these transformations are only run if the input values have changed. -->
-В рамках идеи «изменения вида данных» функции `mapStateToProps` часто должны преобразовывать данные различными способами (например, фильтровать массив, сопоставлять массив идентификаторов с соответствующими объектами или извлекать простые значения JS из Immutable.js объектов). Эти преобразования часто могут быть дорогостоящими как с точки зрения затрат на выполнение преобразования, так и с точки зрения повторного рендеринга компонента в результате. Если вас беспокоит производительность, убедитесь, что эти преобразования выполняются только в том случае, если входные значения изменились.
+В рамках идеи «изменения вида данных» функции `mapStateToProps` часто должны преобразовывать данные различными способами (например, фильтровать массив, сопоставлять массив идентификаторов с соответствующими объектами или извлекать простые значения JS из Immutable.js объектов). Эти преобразования часто могут быть дорогостоящими как с точки зрения затрат на выполнение преобразования, так и с точки зрения повторного рендеринга компонента в результате. Если вас беспокоит производительность, убедитесь, что эти преобразования выполняются только при изменении входящих значений.
 
 <!-- ### `mapStateToProps` Functions Should Be Pure and Synchronous -->
 ### Функции `mapStateToProps` должны быть чистыми и синхронными
 
 <!-- Much like a Redux reducer, a `mapStateToProps` function should always be 100% pure and synchronous. It should only take `state` (and `ownProps`) as arguments, and return the data the component needs as props without mutating those arguments. It should _not_ be used to trigger asynchronous behavior like AJAX calls for data fetching, and the functions should not be declared as `async`. -->
-Подобно редюсеру (reducer) Redux, функция `mapStateToProps` всегда должна быть на 100 % чистой и синхронной. Она должна принимать только `state` (и `ownProps`) в качестве аргументов и возвращать данные, необходимые компоненту, в качестве свойств без изменения этих аргументов. Его _не_ следует использовать для запуска асинхронного поведения, такого как вызовы AJAX для выборки данных, и функции не должны быть объявлены как `async`.
+Подобно Redux редюсеру(reducer), функция `mapStateToProps` всегда должна быть на 100% чистой и синхронной. Она должна принимать только `state` (и `ownProps`) в качестве аргументов и возвращать необходимые компоненту данные в качестве свойств без изменения этих аргументов. Её _не_ следует использовать для запуска асинхронного поведения, такого как вызовы AJAX для выборки данных, и она не должна быть объявлена как `async`.
 
 <!-- ## `mapStateToProps` and Performance -->
 ## `mapStateToProps` и производительность
@@ -163,7 +163,7 @@ function mapStateToProps(state) {
 React Redux внутренне реализует метод `shouldComponentUpdate`, так что компонент-оболочка повторно отображает именно тогда, когда данные, необходимые вашему компоненту, изменились. По умолчанию React Redux решает, отличается ли содержимое объекта, возвращаемого из `mapStateToProps`, используя `===` сравнение (сравнение без приведения типов) для каждого поля возвращаемого объекта. Если какое-либо из полей было изменено, ваш компонент будет повторно отрендерен, чтобы он мог получить обновленные значения в качестве пропсов. Обратите внимание, что возврат измененного объекта по той же ссылке является распространенной ошибкой, которая может привести к тому, что ваш компонент не будет повторно рендерится, как ожидалось.
 
 <!-- To summarize the behavior of the component wrapped by `connect` with `mapStateToProps` to extract data from the store: -->
-Подытожим поведение компонента, обернутого `connect` с `mapStateToProps` для извлечения данных из хранилища:
+Подытожим, поведение компонента, обернутого `connect` с `mapStateToProps` для извлечения данных из хранилища:
 
 <!-- |                              | `(state) => stateProps`                | `(state, ownProps) => stateProps`                                                            |
 | ---------------------------- | -------------------------------------- | -------------------------------------------------------------------------------------------- |
@@ -171,7 +171,7 @@ React Redux внутренне реализует метод `shouldComponentUpd
 | component re-renders when:   | any field of `stateProps` is different | any field of `stateProps` is different <br /> or <br /> any field of `ownProps` is different | -->
 |                              | `(state) => stateProps`                | `(state, ownProps) => stateProps`                                                            |
 | ---------------------------- | -------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `mapStateToProps` запускается, когда: | `state` хранилища (sore) изменился                 | `state` хранилища (sore) изменился <br /> или <br />любое поле `ownProps` отличается                   |
+| `mapStateToProps` запускается, когда: | `state` хранилища(store) изменился                 | `state` хранилища(store) изменился <br /> или <br />любое поле `ownProps` отличается                   |
 | компонент заново рендерится, когда:   | любое поле `stateProps` отличается | любое поле `stateProps` отличается <br /> или <br /> любое поле `ownProps` отличается |
 
 <!-- ### Only Return New Object References If Needed -->
@@ -209,7 +209,7 @@ React Redux выполняет сравнение без приведения т
 <!-- - Some transformations could be calculated in an action creator or reducer, and the transformed data could be kept in the store
 - Transformations can also be done in a component's `render()` method
 - If the transformation does need to be done in a `mapStateToProps` function, then we recommend using [memoized selector functions](https://redux.js.org/recipes/computing-derived-data#creating-a-memoized-selector) to ensure the transformation is only run when the input values have changed. -->
-- Некоторые преобразования можно было выполнить в генераторе действий или редьюсере (reducer), а обработанные данные можно было сохранить в хранилище.
+- Некоторые преобразования можно было выполнить в генераторе действий или редюсере(reducer), а обработанные данные можно было сохранить в хранилище.
 - Преобразования также могут быть выполнены в методе `render()` компонента.
 - Если преобразование необходимо выполнить в функции `mapStateToProps`, мы рекомендуем использовать [мемоизированные фукнции селектора](https://redux.js.org/recipes/computing-derived-data#creating-a-memoized-selector), чтобы убедиться, что преобразование выполняется только при изменении входных значений.
 
@@ -220,7 +220,7 @@ React Redux выполняет сравнение без приведения т
 Автор Immutable.js Ли Байрон в Твиттере [явно советует избегать `toJS`, когда важна производительность](https://twitter.com/leeb/status/746733697093668864?lang=en):
 
 <!-- > Perf tip for #immutablejs: avoid .toJS() .toObject() and .toArray() all slow full-copy operations which render structural sharing useless. -->
-> Совет по улучшению производительности для #immutablejs: избегайте .toJS() .toObject() и .toArray() - всех медленных операций глубого копирования, которые делают структурное совместное использование бесполезным.
+> Совет по улучшению производительности для #immutablejs: избегайте .toJS() .toObject() и .toArray() - всех медленных операций глубого копирования, которые делают structural sharing бесполезным.
 
 <!-- There's several other performance concerns to take into consideration with Immutable.js - see the list of links at the end of this page for more information. -->
 Есть несколько других проблем с производительностью, которые следует учитывать при использовании Immutable.js — см. список ссылок в конце этой страницы для получения дополнительной информации.
@@ -229,19 +229,19 @@ React Redux выполняет сравнение без приведения т
 ## Поведение и ошибки
 
 <!-- ### `mapStateToProps` Will Not Run if the Store State is the Same -->
-### `mapStateToProps` не запустится, если состояние хранилища (store) такое же
+### `mapStateToProps` не запустится, если состояние хранилища(store) такое же
 
 <!-- The wrapper component generated by `connect` subscribes to the Redux store. Every time an action is dispatched, it calls `store.getState()` and checks to see if `lastState === currentState`. If the two state values are identical by reference, then it will _not_ re-run your `mapStateToProps` function, because it assumes that the rest of the store state hasn't changed either. -->
-Компонент-оболочка, сгенерированный `connect`, подписывается на хранилище (store) Redux. Каждый раз, когда действие отправляется, оно вызывает `store.getState()` и проверяет, соответствует ли `lastState === currentState`. Если два значения состояния идентичны по ссылке, то она _не_ перезапустит вашу функцию `mapStateToProps`, поскольку предполагает, что остальная часть состояния хранилища (store) также не изменилась.
+Компонент-оболочка, сгенерированный `connect`, подписывается на Redux хранилище(store). Каждый раз, когда действие отправляется, оно вызывает `store.getState()` и проверяет, соответствует ли `lastState === currentState`. Если два значения состояния идентичны по ссылке, то она _не_ перезапустит вашу функцию `mapStateToProps`, поскольку предполагает, что остальная часть состояния хранилища(store) также не изменилась.
 
 <!-- The Redux `combineReducers` utility function tries to optimize for this. If none of the slice reducers returned a new value, then `combineReducers` returns the old state object instead of a new one. This means that mutation in a reducer can lead to the root state object not being updated, and thus the UI won't re-render. -->
-Вспомогательная функция Redux `combineReducers` пытается оптимизировать это. Если ни один из редьюсеров (reducer) не вернул новое значение, тогда `combineReducers` возвращает старый объект состояния вместо нового. Это означает, что мутация в редьюсере (reducer) может привести к тому, что объект корневого состояния не будет обновляться, и поэтому пользовательский интерфейс не будет повторно рендерится.
+Вспомогательная функция Redux `combineReducers` пытается оптимизировать это. Если ни один из редюсеров(reducers) не вернул новое значение, тогда `combineReducers` возвращает старый объект состояния вместо нового. Это означает, что мутация в редюсере(reducer) может привести к тому, что объект корневого состояния не будет обновляться, и поэтому пользовательский интерфейс не будет повторно рендерится.
 
 <!-- ### The Number of Declared Arguments Affects Behavior -->
 ### Количество объявленных аргументов влияет на поведение
 
 <!-- With just `(state)`, the function runs whenever the root store state object is different. With `(state, ownProps)`, it runs any time the store state is different and ALSO whenever the wrapper props have changed. -->
-Только с `(state)` функция запускается всякий раз, когда объект состояния корневого хранилища отличается. С `(state, ownProps)` она запускается каждый раз, когда состояние хранилища (store) отличается, а ТАКЖЕ всякий раз, когда изменились реквизиты пропсов.
+Только со `(state)` функция запускается всякий раз, когда объект состояния корневого хранилища отличается. При `(state, ownProps)` она запускается каждый раз, когда состояние хранилища(store) отличается, а ТАКЖЕ всякий раз, когда изменились реквизиты пропсов.
 
 <!-- This means that **you should not add the `ownProps` argument unless you actually need to use it**, or your `mapStateToProps` function will run more often than it needs to. -->
 Это означает, что **вы не должны добавлять аргумент `ownProps`, если он вам действительно не нужен**, иначе ваша функция `mapStateToProps` будет запускаться чаще, чем нужно.
