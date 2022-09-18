@@ -75,7 +75,7 @@ const store = configureStore({
 })
 
 // highlight-start
-// Выведение типов `RootState` и `AppDispatch` из контейнера
+// Выведение типов `RootState` и `AppDispatch` из хранилища
 export type RootState = ReturnType<typeof store.getState>
 // Выведенные типы: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch
@@ -93,7 +93,7 @@ export type AppDispatch = typeof store.dispatch
 - `useDispatch`: тип `Dispatch` по умолчанию не знаком с thunks. С целью корректной отправки thunks, вам необходимо использовать специальный тип `AppDispatch` из хранилища (store), который включает типы из thunk middleware и использует их вместе с `useDispatch`. С помощью типизированного хука `useDispatch` можно забыть о необходимости импортировать `AppDispatch`.
 
 <!-- Since these are actual variables, not types, it's important to define them in a separate file such as `app/hooks.ts`, not the store setup file. This allows you to import them into any component file that needs to use the hooks, and avoids potential circular import dependency issues. -->
-Поскольку это переменные, а не типы, важно определить их в отдельном файле, таком как `app/hooks.ts`, а не в файле настройки контейнера. Это позволит вам импортировать их в любой компонент, который должен использовать хуки, и избежать потенциальную проблему с импортом из-за циклической зависимости.
+Поскольку это переменные, а не типы, важно определить их в отдельном файле, таком как `app/hooks.ts`, а не в файле настройки хранилища(store). Это позволит вам импортировать их в любой компонент, который должен использовать хуки, и избежать потенциальную проблему с импортом из-за циклической зависимости.
 
 
 ```ts title="app/hooks.ts"
