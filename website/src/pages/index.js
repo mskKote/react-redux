@@ -31,8 +31,8 @@ const features = [
     content: (
       <p>
         <strong>Спроектирована для работы с React компонентами</strong>.
-        Определите, как извлечь данные для вашего компонента из Redux контейнера,
-        затем библиотека будет обновлять его при необходимости.
+        Вы определяете, как извлечь данные для вашего компонента из хранилища Redux,
+        затем библиотека будет обновлять компонент при необходимости.
         {/* <strong>Designed to work with React's component model</strong>. You
         define how to extract the values your component needs from Redux, and
         your component updates automatically as needed. */}
@@ -45,8 +45,8 @@ const features = [
   {
     content: (
       <p>
-        <strong>Взаимодействие React компонентов с Redux контейнером через API</strong>
-        , таким образом, упрощается внедрение концепции Redux в приложение.
+        Предоставляет API для <strong>взаимодействия React компонентов с хранилищем Redux</strong>. 
+        Таким образом, упрощается внедрение концепции Redux в приложение.
         {/* <strong>Предоставляет API для{' '}
         взаимодействия React компонентов с Redux контейнером</strong>
         , тем самым, упрощая внедрение концепции Redux. */}

@@ -38,7 +38,7 @@ const siteConfig = {
   onBrokenLinks: 'throw',
   tagline: 'Официальная библиотека привязки Redux к React',
   // tagline: 'Official React bindings for Redux',
-  url: 'https://react-redux.js.org', // Your website URL
+  url: 'https://ru.react-redux.js.org/', // Your website URL
   baseUrl: '/',
   // Used for publishing and more
   projectName: 'react-redux',
@@ -161,7 +161,7 @@ const siteConfig = {
           items: [
             {
               label: 'GitHub переводчиков',
-              href: 'https://github.com/reduxjs/react-redux',
+              href: 'https://github.com/mskKote/react-redux-ru',
             },
             {
               label: 'Оригинальный GitHub',
@@ -178,17 +178,7 @@ const siteConfig = {
                   data-count-aria-label="# stargazers on GitHub"
                   aria-label="Star this project on GitHub"
                 >
-                  Star
-                </a>
-              `,
-            },
-            {
-              html: `
-                <a href="https://www.netlify.com">
-                  <img
-                    src="https://www.netlify.com/img/global/badges/netlify-light.svg"
-                    alt="Развёрнуто на Netlify"
-                  />
+                  Поставить звезду Star
                 </a>
               `,
             },
