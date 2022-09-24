@@ -6,13 +6,13 @@ hide_title: true
 # sidebar_label: 'Connect: Dispatching Actions with mapDispatchToProps'
 sidebar_label: 'Connect: Отправка действий с помощью mapDispatchToProps'
 # description: 'Usage > mapDispatch: options for dispatching actions with connect'
-description: 'Использование > mapDispatch: параметры отправки (dispatch) действий с connect'
+description: 'Использование > mapDispatch: параметры отправки(dispatch) действий с connect'
 ---
 
 &nbsp;
 
 <!-- # Connect: Dispatching Actions with `mapDispatchToProps` -->
-# Connect: Отправка действий с помощью mapDispatchToProps`
+# Connect: Отправка действий с помощью `mapDispatchToProps`
 
 <!-- As the second argument passed in to `connect`, `mapDispatchToProps` is used for dispatching actions to the store. -->
 В качестве второго аргумента, передаваемого в `connect`, `mapDispatchToProps` используется для отправки(dispatch) действий в хранилище(store).
