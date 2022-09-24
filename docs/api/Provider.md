@@ -20,9 +20,9 @@ description: 'API > Provider: предоставление хранилища Re
 Поскольку любой компонент React в приложении React Redux может быть подключен к хранилищу, большинство приложений будут рендерить `<Provider>` на верхнем уровне со всем деревом компонентов приложения внутри него.
 
 <!-- The [Hooks](./hooks.md) and [`connect`](./connect.md) APIs can then access the provided store instance via React's Context mechanism. -->
-API [Hooks](./hooks.md ) и [`connect`](./connect.md ) затем могут получить доступ к предоставленному экземпляру хранилища через контекстный механизм React.
+[Хуки](./hooks.md ) и [`connect`](./connect.md ) после подключения смогут получить доступ к предоставленному экземпляру хранилища через механизм передачи контекста из React.
 
-### Props
+### Пропсы
 
 ```ts
 interface ProviderProps<A extends Action = AnyAction, S = any> {
@@ -32,22 +32,22 @@ interface ProviderProps<A extends Action = AnyAction, S = any> {
   store: Store<S, A>
 
   /**
-   * An optional server state snapshot. Will be used during initial hydration render
-   * if available, to ensure that the UI output is consistent with the HTML generated on the server.
-   * New in 8.0
+   * (Опционально) снэпшот серверного состояния. Будет использован во время изначального рендеринга при гидрации(hydration)
+   * Если доступно, то убедится, что вывод пользовательского интерфейса соответствует HTML-коду, сгенерированному на сервере.
+   * Новый в 8.0
    */
   serverState?: S
 
   /**
-   * Optional context to be used internally in react-redux. Use React.createContext()
-   * to create a context to be used.
-   * If this is used, you'll need to customize `connect` by supplying the same
-   * context provided to the Provider.
-   * Initial value doesn't matter, as it is overwritten with the internal state of Provider.
+   * (Опционально) контекст, который будет внутренне использован в react-redux. 
+   * Функция React.createContext() отвечает за создание контекста для использования.
+   * Если этот пропс используется, вам понадобится изменить `connect` 
+   * путём предоставления того же контекста, что был передан в Provider.
+   * Изначальное значение не важно, т.к. оно перезаписывается внутренним состоянием Provider.
    */
   context?: Context<ReactReduxContextValue<S, A>>
 
-  /** The top-level React elements in your component tree, such as `<App />` **/
+  /** Верхнеуровеневый элемент React в вашем дереве компонентов, такие как `<App />` **/
   children: ReactNode
 }
 ```
@@ -56,7 +56,7 @@ interface ProviderProps<A extends Action = AnyAction, S = any> {
 Как правило, вам нужно только передать `<Provider store={store}>.`
 
 <!-- You may provide a context instance. If you do so, you will need to provide the same context instance to all of your connected components as well. Failure to provide the correct context results in this runtime error: -->
-Вы можете предоставить экземпляр контекста. Если вы это сделаете, вам также нужно будет предоставить один и тот же экземпляр контекста всем вашим подключенным компонентам. Невозможность предоставить правильный контекст приводит к этой ошибке во время исполнения:
+Вы можете предоставить экземпляр контекста. Если вы это сделаете, вам также нужно будет предоставить один и тот же экземпляр контекста всем вашим подключенным компонентам. Невозможность предоставить правильный контекст приводит к ошибке во время исполнения:
 
 > Invariant Violation
 >
@@ -66,7 +66,7 @@ interface ProviderProps<A extends Action = AnyAction, S = any> {
 ## Использование React 18 SSR
 
 <!-- As of React-Redux v8, `<Provider>` now accepts a `serverState` prop for use in SSR hydration scenarios. This is necessary if you are calling `hydrateRoot` in order to avoid hydration mismatches. -->
-Начиная с React-Redux v8, `<Provider>` теперь принимает свойство `serverState` для использования в сценариях гидратации SSR. Это необходимо, если вы вызываете hydrateRoot, чтобы избежать несоответствия гидратации.
+Начиная с React-Redux v8, `<Provider>` теперь принимает свойство `serverState` для использования в сценариях гидратации SSR. Это необходимо, если вы вызываете hydrateRoot, чтобы избежать несоответствия при гидратации.
 
 <!-- You should pass the entire serialized state from the server as the `serverState` prop, and React will use this state for the initial hydration render. After that, it will apply any updates from changes that occurred on the client during the setup process. -->
 Вы должны передать целиком сериализованное состояние с сервера в качестве свойства `serverState`, и React будет использовать это состояние для начального рендеринга гидратации. После этого он применит все изменения, которые произошли на клиенте в процессе загрузки.
@@ -99,10 +99,10 @@ root.render(
 )
 ```
 
-### React 18 SSR Hydration
+### React 18 SSR гидрация(Hydration)
 
 <!-- In this example, the client has received HTML rendered by the server, as well as a serialized Redux state attached to `window`. The serialized state is used to both pre-fill the store's contents, _and_ passed as the `serverState` prop to `<Provider>` -->
-В этом примере клиент получил HTML, отображаемый сервером, а также сериализованное состояние Redux, прикрепленное к `window`. Сериализованное состояние используется как для предварительного заполнения содержимого хранилища, так _и_ для передачи в качестве свойства `serverState` в `<Provider>`
+В этом примере клиент получил HTML, отображаемый сервером, а также сериализованное состояние Redux, прикрепленное к `window`. Сериализованное состояние используется для предварительного заполнения содержимого хранилища _и_ для передачи в качестве свойства `serverState` в `<Provider>`
 
 ```tsx title="src/index.ts"
 import { hydrateRoot } from 'react-dom/client'
