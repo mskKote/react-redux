@@ -40,7 +40,7 @@ hide_title: true
 <!-- 2. Make sure you don't have multiple instances/copies of React Redux in your project. -->
 2. Убедитесь, что в вашем проекте нет нескольких экземпляров/копий React Redux.
 <!-- 3. Make sure you didn’t forget to wrap your root or some other ancestor component in [`<Provider>`](#provider-store). -->
-3. Убедитесь, что вы не забыли обернуть свой корневой компонент или какой-либо другой компонент-предок в [`<Provider>`](#provider-store).
+3. Убедитесь, что вы не забыли обернуть свой корневой компонент или какой-либо другой компонент-предок в `<Provider>`.
 <!-- 4. Make sure you’re running the latest versions of React and React Redux. -->
 4. Убедитесь, что вы используете последние версии React и React Redux.
 

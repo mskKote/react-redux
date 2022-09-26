@@ -87,7 +87,7 @@ const result: any = useSelector(selector: Function, equalityFn?: Function)
 :::info Информация
 
 <!-- There are potential edge cases with using props in selectors that may cause issues. See the [Usage Warnings](#usage-warnings) section of this page for further details. -->
-Существуют потенциальные пограничные случаи с использованием пропсов в селекторах, которые могут вызвать проблемы. Дополнительную информацию см. в разделе [Предупреждения об использовании](#usage-warnings) на этой странице.
+Существуют потенциальные пограничные случаи с использованием пропсов в селекторах, которые могут вызвать проблемы. Дополнительную информацию см. в разделе [Предупреждения об использовании](#предупреждения-при-использовании) на этой странице.
 
 :::
 
@@ -413,7 +413,7 @@ export function MyProvider({ children }) {
 ```
 
 <!-- ## Usage Warnings -->
-## Предупреждения об использовании
+## Предупреждения при использовании
 
 <!-- ### Stale Props and "Zombie Children" -->
 ### Устаревшие пропсы и "зомби потомки"

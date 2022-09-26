@@ -64,7 +64,7 @@ function connect(mapStateToProps?, mapDispatchToProps?, mergeProps?, options?)
 2. `ownProps?: Object`
 
 <!-- A `mapStateToProps` function takes a maximum of two parameters. The number of declared function parameters (a.k.a. arity) affects when it will be called. This also determines whether the function will receive ownProps. See notes [here](#the-arity-of-maptoprops-functions). -->
-Функция `mapStateToProps` принимает максимум 2 параметра. Количество объявленных параметров функции (т.н. арность) влияет на то, когда функция будет вызвана. Это также определяет получит ли функция `ownProps`. Смотрите записи [здесь](#the-arity-of-maptoprops-functions).
+Функция `mapStateToProps` принимает максимум 2 параметра. Количество объявленных параметров функции (т.н. арность) влияет на то, когда функция будет вызвана. Это также определяет получит ли функция `ownProps`. Смотрите записи [здесь](#арность-функций-maptoprops).
 
 ##### `state`
 
@@ -104,7 +104,7 @@ const mapStateToProps = (state, ownProps) => ({
 За подробностями использования `mapStateToProps` мы рекомендуем обращайться к [нашему гайду по использованию `mapStateToProps`](../using-react-redux/connect-extracting-data-with-mapStateToProps.md).
 
 <!-- > You may define `mapStateToProps` and `mapDispatchToProps` as a factory function, i.e., you return a function instead of an object. In this case your returned function will be treated as the real `mapStateToProps` or `mapDispatchToProps`, and be called in subsequent calls. You may see notes on [Factory Functions](#factory-functions) or our guide on performance optimizations. -->
-> Вы можете определить `mapStateToProps` и `mapDispatchToProps` как фабричную функцию, т.е. вы вернёте функцию вместо объекта. В этом случае возвращаемая функция будет рассматриваться в качестве настоящего аргумента  `mapStateToProps` или `mapDispatchToProps`, и будет вызываться при последующих вызовах. Вы можете посмотреть записи про [фабричные функции](#factory-functions) или наш гайд на оптимизацию производительности.
+> Вы можете определить `mapStateToProps` и `mapDispatchToProps` как фабричную функцию, т.е. вы вернёте функцию вместо объекта. В этом случае возвращаемая функция будет рассматриваться в качестве настоящего аргумента  `mapStateToProps` или `mapDispatchToProps`, и будет вызываться при последующих вызовах. Вы можете посмотреть записи про [фабричные функции](#фабричные-функции) или наш гайд на оптимизацию производительности.
 
 ### `mapDispatchToProps?: Object | (dispatch, ownProps?) => Object`
 
@@ -165,7 +165,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 ```
 
 <!-- The number of declared function parameters of `mapDispatchToProps` determines whether they receive ownProps. See notes [here](#the-arity-of-maptoprops-functions). -->
-Количество определённых параметров функции `mapDispatchToProps` определяет получит ли она ownProps. Смотрите записи [здесь](#the-arity-of-maptoprops-functions).
+Количество определённых параметров функции `mapDispatchToProps` определяет получит ли она ownProps. Смотрите записи [здесь](#арность-функций-maptoprops).
 
 
 <!-- #### Returns -->
