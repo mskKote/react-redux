@@ -1,15 +1,15 @@
 ---
 id: hooks
-title: Hooks
-sidebar_label: Hooks
+title: Хуки
+sidebar_label: Хуки
 hide_title: true
 # description: 'API > Hooks: the `useSelector` and `useDispatch` hooks`'
-description: 'API > Hooks: хуки `useSelector` и `useDispatch`'
+description: 'API > Хуки: хуки `useSelector` и `useDispatch`'
 ---
 
 &nbsp;
 
-# Hooks
+# Хуки
 
 <!-- React's new ["hooks" APIs](https://reactjs.org/docs/hooks-intro.html) give function components the ability to use local component state, execute side effects, and more. React also lets us write [custom hooks](https://reactjs.org/docs/hooks-custom.html), which let us extract reusable hooks to add our own behavior on top of React's built-in hooks. -->
 Новое [API "хуков"](https://reactjs.org/docs/hooks-intro.html) в React дают функциональным компонентам возможность использовать локальное состояние компонентов, выполнять побочные действия и многое другое. React также позволяет нам писать [кастомные хуки](https://reactjs.org/docs/hooks-custom.html), которые позволяют нам извлекать повторно используемые хуки, чтобы добавить наше собственное поведение поверх встроенных в React хуков.
@@ -569,4 +569,4 @@ export function useShallowEqualSelector(selector) {
 ### Дополнительные соображения при использовании хуков
 
 <!-- There are some architectural trade offs to take into consideration when deciding whether to use hooks or not. Mark Erikson summarizes these nicely in his two blog posts [Thoughts on React Hooks, Redux, and Separation of Concerns](https://blog.isquaredsoftware.com/2019/07/blogged-answers-thoughts-on-hooks/) and [Hooks, HOCs, and Tradeoffs](https://blog.isquaredsoftware.com/2019/09/presentation-hooks-hocs-tradeoffs/). -->
-Есть некоторые архитектурные компромиссы, которые следует учитывать при принятии решения об использовании хуков или нет. Марк Эриксон хорошо резюмирует их в своих двух постах в блоге [Мысли о React Hooks, Redux и разделении ответственности](https://blog.isquaredsoftware.com/2019/07/blogged-answers-thoughts-on-hooks/) и [Хуки, HOC и компромиссы](https://blog.isquaredsoftware.com/2019/09/presentation-hooks-hocs-tradeoffs/).
+Есть некоторые архитектурные компромиссы, которые следует учитывать при принятии решения об использовании хуков или нет. Марк Эриксон хорошо резюмирует их в своих двух постах в блоге [Мысли о React хуках, Redux и разделении ответственности](https://blog.isquaredsoftware.com/2019/07/blogged-answers-thoughts-on-hooks/) и [Хуки, HOC и компромиссы](https://blog.isquaredsoftware.com/2019/09/presentation-hooks-hocs-tradeoffs/).
