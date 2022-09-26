@@ -10,7 +10,7 @@ description: 'API > connect: компонент высшего порядка д
 
 # `connect()`
 
-:::tip подсказка
+:::tip Подсказка
 
 <!-- `connect` still works and is supported in React-Redux 8.x. However, [**we recommend using the hooks API as the default**](./hooks.md). -->
 `connect` всё ещё работает и поддерживается в React-Redux версии 8.x. Как бы то ни было, [**мы настоятельно рекомендуем по умолчанию использовать хуки**](./hooks.md).
@@ -21,13 +21,13 @@ description: 'API > connect: компонент высшего порядка д
 ## Введение
 
 <!-- The `connect()` function connects a React component to a Redux store. -->
-Функция `connect()` соединяет компонент React с Redux хранилищем (store).
+Функция `connect()` соединяет компонент React с Redux хранилищем(store).
 
 <!-- It provides its connected component with the pieces of the data it needs from the store, and the functions it can use to dispatch actions to the store. -->
-Она возвращает подключенный компонент с необходимой ему частью состояния и функция для отправки (dispatch) действий в хранилище (store).
+Она возвращает подключенный компонент с необходимой ему частью состояния и функция для отправки(dispatch) действий в хранилище(store).
 
 <!-- It does not modify the component class passed to it; instead, it returns a new, connected component class that wraps the component you passed in. -->
-Она не изменяет получаемый на вход компонент; вместо этого, она возвращает новый компонент-обёртку, подключенный к хранилищу (store) и содержащий пользовательский компонент.
+Она не изменяет получаемый на вход компонент; вместо этого, она возвращает новый компонент-обёртку, подключенный к хранилищу(store) и содержащий пользовательский компонент.
 
 
 ```js
@@ -35,7 +35,7 @@ function connect(mapStateToProps?, mapDispatchToProps?, mergeProps?, options?)
 ```
 
 <!-- The `mapStateToProps` and `mapDispatchToProps` deals with your Redux store’s `state` and `dispatch`, respectively. `state` and `dispatch` will be supplied to your `mapStateToProps` or `mapDispatchToProps` functions as the first argument. -->
-Функции `mapStateToProps` и `mapDispatchToProps` работают с состоянием `state` Redux хранилища (store) и отправкой действий `dispatch` соотвественно. `state` и `dispatch` будут поставляться первым параметром в функции `mapStateToProps` или `mapDispatchToProps`.
+Функции `mapStateToProps` и `mapDispatchToProps` работают с состоянием `state` Redux хранилища(store) и отправкой действий `dispatch` соотвественно. `state` и `dispatch` будут поставляться первым параметром в функции `mapStateToProps` или `mapDispatchToProps`.
 
 <!-- The returns of `mapStateToProps` and `mapDispatchToProps` are referred to internally as `stateProps` and `dispatchProps`, respectively. They will be supplied to `mergeProps`, if defined, as the first and the second argument, where the third argument will be `ownProps`. The combined result, commonly referred to as `mergedProps`, will then be supplied to your connected component. -->
 Возвращаемые значения из функций `mapStateToProps` и `mapDispatchToProps` именуются как `stateProps` и `dispatchProps`, соответственно. Если они определены, то они будут поставляться в `mergeProps` как первый и второй параметр, в то время как третьим параметром будет `ownProps`. Скомбинированный результат обычно именуется как `mergedProps` и будет поставляться в ваш подключенный компонент.
@@ -44,7 +44,7 @@ function connect(mapStateToProps?, mapDispatchToProps?, mergeProps?, options?)
 ## Параметры `connect()`
 
 <!-- `connect` accepts four different parameters, all optional. By convention, they are called: -->
-`connect` принимает 4 разные опциональных параметра. По конвенции они называются:
+`connect` принимает 4 разных необязательных параметра. По конвенции они называются:
 
 1. `mapStateToProps?: Function`
 2. `mapDispatchToProps?: Function | Object`
@@ -54,7 +54,7 @@ function connect(mapStateToProps?, mapDispatchToProps?, mergeProps?, options?)
 ### `mapStateToProps?: (state, ownProps?) => Object`
 
 <!-- If a `mapStateToProps` function is specified, the new wrapper component will subscribe to Redux store updates. This means that any time the store is updated, `mapStateToProps` will be called. The results of `mapStateToProps` must be a plain object, which will be merged into the wrapped component’s props. If you don't want to subscribe to store updates, pass `null` or `undefined` in place of `mapStateToProps`. -->
-Если функция `mapStateToProps` определена, новый компонент-обёртка будет подписываться на обновления Redux хранилища (store). Это означает, что при каждом обновлении хранилища (store) будет вызываться `mapStateToProps`. Результатом `mapStateToProps` должен быть простым объектом, который будет объединён с пропсами обёрнутого компонента. Если вы не хотите подписываться на обновления хранилища (store), укажите `null` или `undefined` вместо `mapStateToProps`.
+Если функция `mapStateToProps` определена, новый компонент-обёртка будет подписываться на обновления Redux хранилища(store). Это означает, что при каждом обновлении хранилища(store) будет вызываться `mapStateToProps`. Результатом `mapStateToProps` должен быть простым объектом, который будет объединён с пропсами обёрнутого компонента. Если вы не хотите подписываться на обновления хранилища(store), укажите `null` или `undefined` вместо `mapStateToProps`.
 
 
 <!-- #### Parameters -->
@@ -69,7 +69,7 @@ function connect(mapStateToProps?, mapDispatchToProps?, mergeProps?, options?)
 ##### `state`
 
 <!-- If your `mapStateToProps` function is declared as taking one parameter, it will be called whenever the store state changes, and given the store state as the only parameter. -->
-Если ваша функция `mapStateToProps` объявлена с 1 параметром, она будет вызываться при каждом изменении в хранилище (store) и получать аргументом актуальное состояние хранилище в качестве.
+Если ваша функция `mapStateToProps` объявлена с 1 параметром, она будет вызываться при каждом изменении в хранилище(store) и получать аргументом актуальное состояние хранилище в качестве.
 
 
 ```js
@@ -79,7 +79,7 @@ const mapStateToProps = (state) => ({ todos: state.todos })
 ##### `ownProps`
 
 <!-- If your `mapStateToProps` function is declared as taking two parameters, it will be called whenever the store state changes _or_ when the wrapper component receives new props (based on shallow equality comparisons). It will be given the store state as the first parameter, and the wrapper component's props as the second parameter. -->
-Если ваша функция `mapStateToProps` объявлена с 2-мя параметрами, она будет вызываться при каждом изменении состояния хранилища (store) _или_ когда компонент-обёртка получит новые пропсы (основываясь на неглубоком проверке на равенство). Она получит состояние хранилища (store) первым аргументом и пропсы компонента-обёртки вторым аргументом.
+Если ваша функция `mapStateToProps` объявлена с 2-мя параметрами, она будет вызываться при каждом изменении состояния хранилища(store) _или_ когда компонент-обёртка получит новые пропсы (основываясь на неглубокой проверке на равенство). Она получит состояние хранилища(store) первым аргументом и пропсы компонента-обёртки вторым аргументом.
 
 <!-- The second parameter is normally referred to as `ownProps` by convention. -->
 Второй параметр по конвенции называется `ownProps`.
@@ -104,7 +104,7 @@ const mapStateToProps = (state, ownProps) => ({
 За подробностями использования `mapStateToProps` мы рекомендуем обращайться к [нашему гайду по использованию `mapStateToProps`](../using-react-redux/connect-extracting-data-with-mapStateToProps.md).
 
 <!-- > You may define `mapStateToProps` and `mapDispatchToProps` as a factory function, i.e., you return a function instead of an object. In this case your returned function will be treated as the real `mapStateToProps` or `mapDispatchToProps`, and be called in subsequent calls. You may see notes on [Factory Functions](#factory-functions) or our guide on performance optimizations. -->
-> Вы можете определить `mapStateToProps` и `mapDispatchToProps` как фабричную функцию, т.е. вы вернёте функцию вместо объекта. В этом случае возвращаемая функция будет рассматриваться в качестве настоящего аргумента  `mapStateToProps` или `mapDispatchToProps`, и будет вызываться при последующих вызовах. Вы можете посмотреть записи на [фабричные функции](#factory-functions) или наш гайд на оптимизацию производительности.
+> Вы можете определить `mapStateToProps` и `mapDispatchToProps` как фабричную функцию, т.е. вы вернёте функцию вместо объекта. В этом случае возвращаемая функция будет рассматриваться в качестве настоящего аргумента  `mapStateToProps` или `mapDispatchToProps`, и будет вызываться при последующих вызовах. Вы можете посмотреть записи про [фабричные функции](#factory-functions) или наш гайд на оптимизацию производительности.
 
 ### `mapDispatchToProps?: Object | (dispatch, ownProps?) => Object`
 
@@ -112,7 +112,7 @@ const mapStateToProps = (state, ownProps) => ({
 По конвенции `mapDispatchToProps` - второй параметр функции `connect()` также может быть объектом, функцией или быть не указан вовсе.
 
 <!-- Your component will receive `dispatch` by default, i.e., when you do not supply a second parameter to `connect()`: -->
-Ваш компонент буедт получать функцию `dispatch` по умолчанию, т.е. когда вы не указываете второй аргумент для `connect()`:
+Ваш компонент будет получать функцию `dispatch` по умолчанию, т.е. когда вы не указываете второй аргумент для `connect()`:
 
 ```js
 // не указываем `mapDispatchToProps`
@@ -138,7 +138,7 @@ connect(mapState, null, mergeProps, options)(MyComponent)
 ```js
 const mapDispatchToProps = (dispatch) => {
   return {
-    // отправляем (dispatch) простые действия (action)
+    // отправляем(dispatch) простые действия(action)
     increment: () => dispatch({ type: 'INCREMENT' }),
     decrement: () => dispatch({ type: 'DECREMENT' }),
     reset: () => dispatch({ type: 'RESET' }),
@@ -149,7 +149,7 @@ const mapDispatchToProps = (dispatch) => {
 ##### `ownProps`
 
 <!-- If your `mapDispatchToProps` function is declared as taking two parameters, it will be called with `dispatch` as the first parameter and the props passed to the wrapper component as the second parameter, and will be re-invoked whenever the connected component receives new props. -->
-Если ваша функция `mapDispatchToProps` объявлена с 2-мя параметрами, она будет вызываться с `dispatch` как первый аргумент и с пропсами, переданными компоненту-оболочке, в качестве второго аргумента и будет повторно вызваться, когда подключенный компонент получает новые пропсы.
+Если ваша функция `mapDispatchToProps` объявлена с 2-мя параметрами, она будет вызываться с `dispatch` первым аргументом и с пропсами, переданными компоненту-оболочке, в качестве второго аргумента и будет повторно вызваться, когда подключенный компонент получает новые пропсы.
 
 <!-- The second parameter is normally referred to as `ownProps` by convention. -->
 Второй параметр по конвенции называется `ownProps`.
@@ -172,10 +172,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 #### Возвращаемое значение
 
 <!-- Your `mapDispatchToProps` functions are expected to return an object. Each fields of the object should be a function, calling which is expected to dispatch an action to the store. -->
-Ожидается, что ваша функция `mapDispatchToProps` вернёт объект. Каждое из полей объекта следует указывать как функцией, вызывая которую calling ожидается отправка (dispatch) действия (action) в хранилище (store).
+Ожидается, что ваша функция `mapDispatchToProps` вернёт объект. Каждое из полей объекта следует указывать функцией, вызывая которую ожидается отправка(dispatch) действия(action) в хранилище(store).
 
 <!-- The return of your `mapDispatchToProps` functions are regarded as `dispatchProps`. It will be merged as props to your connected component. If you define `mergeProps`, it will be supplied as the second parameter to `mergeProps`. -->
-Возвращаемые функции из `mapDispatchToProps` расцениваться как `dispatchProps`. Они будут объединены с пропсам вашего подключаемого компонента.  Если вы укажете параметр `mergeProps`, он будет поставляться вторым аргументом в `mergeProps`.
+Возвращаемые функции из `mapDispatchToProps` расцениваться как `dispatchProps`. Они будут объединены с пропсам вашего подключаемого компонента. Если вы укажете параметр `mergeProps`, то он будет поставляться вторым аргументом в `mergeProps`.
 
 ```js
 const createMyAction = () => ({ type: 'MY_ACTION' })
@@ -195,7 +195,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 За подробностями использования `mapDispatchToProps` мы рекомендуем обращайться к [нашему гайду по использованию `mapDispatchToProps`](../using-react-redux/connect-mapdispatch).
 
 <!-- > You may define `mapStateToProps` and `mapDispatchToProps` as a factory function, i.e., you return a function instead of an object. In this case your returned function will be treated as the real `mapStateToProps` or `mapDispatchToProps`, and be called in subsequent calls. You may see notes on [Factory Functions](#factory-functions) or our guide on performance optimizations. -->
-> Вы можете определить `mapStateToProps` и `mapDispatchToProps` как фабричную функцию, т.е. вы вернёте функцию вместо объекта. В этом случае возвращаемая функция будет рассматриваться в качестве настоящего аргумента  `mapStateToProps` или `mapDispatchToProps`, и будет вызываться при последующих вызовах. Вы можете посмотреть записи на [фабричные функции](#factory-functions) или наш гайд на оптимизацию производительности.
+> Вы можете определить `mapStateToProps` и `mapDispatchToProps` как фабричную функцию, т.е. вы вернёте функцию вместо объекта. В этом случае возвращаемая функция будет рассматриваться в качестве настоящего аргумента  `mapStateToProps` или `mapDispatchToProps`, и будет вызываться при последующих вызовах. Вы можете посмотреть записи про [фабричные функции](#factory-functions) или наш гайд на оптимизацию производительности.
 
 <!-- #### Object Shorthand Form -->
 #### Сокращенная форма объекта
@@ -217,11 +217,11 @@ export default connect(null, mapDispatchToProps)(TodoApp)
 ```
 
 <!-- In this case, React-Redux binds the `dispatch` of your store to each of the action creators using `bindActionCreators`. The result will be regarded as `dispatchProps`, which will be either directly merged to your connected components, or supplied to `mergeProps` as the second argument. -->
-В этом случае React-Redux привязывает `dispatch` вашего хранилища (store) к каждому создателю действий, используя `bindActionCreators`. Результат будет расцениваться как `dispatchProps`, которые также будут объединены с вашими подключенными компонентами или переданы в `mergeProps` в качестве второго аргумента.
+В этом случае React-Redux привязывает `dispatch` к каждому создателю действий, используя `bindActionCreators`, результат будет расцениваться как `dispatchProps`, которые также будут объединены с вашими подключенными компонентами или переданы в `mergeProps` вторым аргументом.
 
 ```js
 // Под капотом React-Redux вызывает bindActionCreators
-// для привязки создателей действий к dispatch вашего хранилища (store)
+// для привязки создателей действий к dispatch вашего хранилища(store)
 bindActionCreators(mapDispatchToProps, dispatch)
 ```
 
@@ -232,7 +232,7 @@ bindActionCreators(mapDispatchToProps, dispatch)
 ### `mergeProps?: (stateProps, dispatchProps, ownProps) => Object`
 
 <!-- If specified, defines how the final props for your own wrapped component are determined. If you do not provide `mergeProps`, your wrapped component receives `{ ...ownProps, ...stateProps, ...dispatchProps }` by default. -->
-Если параметр указан, определяет окончательный вид пропсов для вашего компонента-обёртки. Если вы не предоставите `mergeProps`, ваш компонент-обёртка получит `{ ...ownProps, ...stateProps, ...dispatchProps }` по умолчанию.
+Если параметр указан, определяет окончательный вид пропсов для вашего компонента-обёртки. Если вы не предоставите `mergeProps`, ваш компонент-обёртка по умолчанию получит `{ ...ownProps, ...stateProps, ...dispatchProps }`.
 
 <!-- #### Parameters -->
 #### Параметры
@@ -246,7 +246,7 @@ bindActionCreators(mapDispatchToProps, dispatch)
 3. `ownProps`
 
 <!-- The fields in the plain object you return from it will be used as the props for the wrapped component. You may specify this function to select a slice of the state based on props, or to bind action creators to a particular variable from props. -->
-Поля объекта, возвраемого из неё, будут использоваться как пропсы для компонента-обёртки. Вы можете указать функцию `mergeProps`, чтобы выбрать часть состояния, основываясь на пропсах или чтобы привязать создателей действий к определённой переменной из пропсов.
+Поля объекта, возвращаемого из неё, будут использоваться как пропсы для компонента-обёртки. Вы можете указать функцию `mergeProps`, чтобы выбрать часть состояния(slice), основываясь на пропсах или чтобы привязать создателей действий к определённой переменной из пропсов.
 
 <!-- #### Returns -->
 #### Возвращаемое значение
@@ -297,7 +297,7 @@ connect(mapStateToProps, mapDispatchToProps, null, { context: MyContext })(
 - Значение по умолчанию: `strictEqual: (next, prev) => prev === next`
 
 <!-- Compares incoming store state to its previous value. -->
-Сравнивает входящее состояние хранилища (store) с его предыдущим состоянием.
+Сравнивает входящее состояние хранилища(store) с его предыдущим состоянием.
 
 ```js
 const areStatesEqual = (next, prev) =>
@@ -305,7 +305,7 @@ const areStatesEqual = (next, prev) =>
 ```
 
 <!-- You may wish to override `areStatesEqual` if your `mapStateToProps` function is computationally expensive and is also only concerned with a small slice of your state. The example above will effectively ignore state changes for everything but that slice of state. -->
-Вам может понадобиться переопределить `areStatesEqual`, если ваша функция `mapStateToProps` содержит сложные вычислениях или если она касается только небольшой части вашего состояния. В примере выше будет эффективно игнорировать все изменения состояния не касающиеся используемого фрагмента состояния.
+Вам может понадобиться переопределить `areStatesEqual`, если ваша функция `mapStateToProps` содержит сложные вычислениях или если она касается только небольшой части вашего состояния. Пример выше эффективен: игнорируются все изменения состояния, не касающиеся используемой части(slice) состояния.
 
 <!-- This would likely impact the other equality checks as well, depending on your `mapStateToProps` function. -->
 Это, вероятно, повлияет и на другие проверки на равенство, в зависимости от вашей функции `mapStateToProps`.
@@ -339,7 +339,7 @@ const areStatesEqual = (next, prev) =>
 Сравнивает результат функции `mergeProps` с его предыдущим значением.
 
 <!-- You may wish to override `areStatePropsEqual` to use `strictEqual` if your `mapStateToProps` uses a memoized selector that will only return a new object if a relevant prop has changed. This would be a very slight performance improvement, since would avoid extra equality checks on individual props each time `mapStateToProps` is called. -->
-Вы можете переопределить `areStatePropsEqual` для использования `strictEqual`, если ваш `mapStateToProps` использует мемоизированный селектор, возвращающий новый объект, если соответствующее свойство изменилось. Это может незначительно улучшить производительность, так как это позволит избежать дополнительных проверок на равенство для отдельных пропсов при каждом вызове `mapStateToProps`.
+Вы можете переопределить `areStatePropsEqual`, использовать `strictEqual`, если ваш `mapStateToProps` использует мемоизированный селектор, возвращающий новый объект, если соответствующее свойство изменилось. Это может незначительно улучшить производительность, так как это позволит избежать дополнительных проверок на равенство для отдельных пропсов при каждом вызове `mapStateToProps`.
 
 <!-- You may wish to override `areMergedPropsEqual` to implement a `deepEqual` if your selectors produce complex props. ex: nested objects, new arrays, etc. (The deep equal check may be faster than just re-rendering.) -->
 Вы можете переопределить `areMergedPropsEqual` для реализации `deepEqual`, если ваши селекторы представляют собой сложные свойства, например: вложенные объекты, новые массивы итд (Глубокая проверка на равенство может быть быстрее, чем повторная отрисовка.)
@@ -397,14 +397,14 @@ export default connect(mapState, mapDispatch)(Login)
 В силу гибкости `connect`, могут понадобиться дополнительные примеры того, как его можно вызвать:
 
 <!-- - Inject just `dispatch` and don't listen to store -->
-- Внедрить только `dispatch` и не подписываться на хранилище (store)
+- Внедрить только `dispatch` и не подписываться на хранилище(store)
 
 ```js
 export default connect()(TodoApp)
 ```
 
 <!-- - Inject all action creators (`addTodo`, `completeTodo`, ...) without subscribing to the store -->
-- Внедрение всех создателей действий (`addTodo`, `completeTodo`, ...) без подписки на хранилище (store)
+- Внедрение всех создателей действий (`addTodo`, `completeTodo`, ...) без подписки на хранилище(store)
 
 ```js
 import * as actionCreators from './actionCreators'
@@ -413,12 +413,12 @@ export default connect(null, actionCreators)(TodoApp)
 ```
 
 <!-- - Inject `dispatch` and every field in the global state -->
-- Внедрение `dispatch` и каждого поля в глобальном состоянии (state)
+- Внедрение `dispatch` и каждого поля в глобальном состоянии(state)
 
 <!-- > Don’t do this! It kills any performance optimizations because `TodoApp` will rerender after every state change. -->
 > Не делайте этого! Это убивает любые оптимизации производительность, поскольку `TodoApp` будет перерисовываться после каждого изменения состояния.
 <!-- > It’s better to have more granular `connect()` on several components in your view hierarchy that each only listen to a relevant slice of the state. -->
-> Лучше иметь точечный вызов `connect()` в нескольких компонентах в вашей иерархии, которые будут подписываться только на релевантные части общего состояния (state).
+> Лучше иметь точечный вызов `connect()` в нескольких компонентах в вашей иерархии, которые будут подписываться только на релевантные части общего состояния(state).
 
 ```js
 // Не делайте этого!
@@ -450,7 +450,7 @@ export default connect(mapStateToProps, actionCreators)(TodoApp)
 ```
 
 <!-- - Inject `todos` and all action creators (`addTodo`, `completeTodo`, ...) as `actions` -->
-- Внеддрение `todos` и всех создателей действий (`addTodo`, `completeTodo`, ...) как `actions`
+- Внедрение `todos` и всех создателей действий (`addTodo`, `completeTodo`, ...) как `actions`
 
 ```js
 import * as actionCreators from './actionCreators'
@@ -614,7 +614,7 @@ export default connect(mapStateToProps, actionCreators, mergeProps)(TodoApp)
 Количество объявленных параметров функций `mapStateToProps` и `mapDispatchToProps` определяет, получат они в аргументы `ownProps` или нет.
 
 <!-- > Note: `ownProps` is not passed to `mapStateToProps` and `mapDispatchToProps` if the formal definition of the function contains one mandatory parameter (function has length 1). For example, functions defined like below won't receive `ownProps` as the second argument. If the incoming value of `ownProps` is `undefined`, the default argument value will be used. -->
-> Примечание: `ownProps` не передаётся в `mapStateToProps` и `mapDispatchToProps`, если формальное определение функции содержит один обязательный параметр (функция имеет длину 1). Например, функции определённые внизу  не получат `ownProps` вторым аргументом. Если входящее значение `ownProps` это `undefined`, будет использоваться значение аргумента по умолчанию.
+> Примечание: `ownProps` не передаётся в `mapStateToProps` и `mapDispatchToProps`, если формальное определение функции содержит один обязательный параметр (функция имеет длину 1). Например, функции определённые внизу не получат `ownProps` вторым аргументом. Если входящее значение `ownProps` это `undefined`, будет использоваться значение аргумента по умолчанию.
 
 
 ```js
@@ -675,10 +675,10 @@ export default connect(makeMapState)(SomeComponent)
 ## Устаревшие версии документации
 
 <!-- While the `connect` API has stayed almost entirely API-compatible between all of our major versions, there have been some small changes in options and behavior from version to version. -->
-Пока что `connect` API осталось почти полностью совместимым между всеми основными версиями React Redux, были небольшие изменения в параметрах и поведении от версии к версии.
+Пока что API `connect` осталось почти полностью совместимым между всеми основными версиями React Redux, были только небольшие изменения в параметрах и поведении от версии к версии.
 
 <!-- For details on the legacy 5.x and 6.x versions, please see these archived files in the React Redux repo: -->
 Подробную информацию об устаревших версиях 5.x и 6.x смотрите в этих архивных файлах в репозитории React Redux:
 
-- [5.x `connect` API reference](https://github.com/reduxjs/react-redux/blob/v7.2.2/website/versioned_docs/version-5.x/api/connect.md)
-- [6.x `connect` API reference](https://github.com/reduxjs/react-redux/blob/v7.2.2/website/versioned_docs/version-6.x/api/connect.md)
+- [5.x `connect` API ссылка](https://github.com/reduxjs/react-redux/blob/v7.2.2/website/versioned_docs/version-5.x/api/connect.md)
+- [6.x `connect` API ссылка](https://github.com/reduxjs/react-redux/blob/v7.2.2/website/versioned_docs/version-6.x/api/connect.md)
